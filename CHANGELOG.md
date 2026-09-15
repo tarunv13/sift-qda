@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-15
+
 ### Added
 
 - Guided tour for first-time users: a spotlight walks through the projects screen and the workspace
