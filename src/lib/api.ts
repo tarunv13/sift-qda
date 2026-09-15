@@ -57,11 +57,14 @@ export const api = {
   listNodeReferences: (nodeId: number) =>
     invoke<QuotedReference[]>("list_node_references", { nodeId }),
   deleteCodingReference: (id: number) => invoke<void>("delete_coding_reference", { id }),
+  mergeNodes: (fromId: number, intoId: number) => invoke<number>("merge_nodes", { fromId, intoId }),
+  /** Resolves true when the passage was already coded at the target code (the duplicate is removed). */
+  recodeReference: (id: number, nodeId: number) => invoke<boolean>("recode_reference", { id, nodeId }),
 
   // Memos and cases
   listMemos: (projectId: number) => invoke<Memo[]>("list_memos", { projectId }),
-  createMemo: (projectId: number, title: string, sourceId?: number | null) =>
-    invoke<Memo>("create_memo", { projectId, title, sourceId }),
+  createMemo: (projectId: number, title: string, sourceId?: number | null, nodeId?: number | null) =>
+    invoke<Memo>("create_memo", { projectId, title, sourceId, nodeId }),
   updateMemo: (id: number, title: string, body: string) =>
     invoke<Memo>("update_memo", { id, title, body }),
   deleteMemo: (id: number) => invoke<void>("delete_memo", { id }),

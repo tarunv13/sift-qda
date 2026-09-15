@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../lib/api";
 import type { EmbeddingStatus, IndexStatus } from "../../lib/types";
 import { useProject } from "../../state/ProjectContext";
+import { UndoButton } from "../common/UndoButton";
 import { TourButton } from "../tour/TourButton";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
@@ -60,6 +61,7 @@ export function StatusBar() {
         </span>
       ) : null}
       <div className="relative ml-auto flex items-center gap-1.5">
+        <UndoButton />
         <div data-tour="prefs" className="flex items-center gap-1.5">
           <ThemeToggle />
           <TourButton tour="workspace" />

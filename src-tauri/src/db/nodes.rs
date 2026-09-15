@@ -99,7 +99,7 @@ pub fn update(
 }
 
 /// True when `candidate` sits somewhere below `ancestor` in the tree.
-fn is_descendant(conn: &Connection, candidate: i64, ancestor: i64) -> AppResult<bool> {
+pub(crate) fn is_descendant(conn: &Connection, candidate: i64, ancestor: i64) -> AppResult<bool> {
     let found: i64 = conn.query_row(
         "WITH RECURSIVE sub(id) AS (
              SELECT id FROM nodes WHERE parent_id = ?1

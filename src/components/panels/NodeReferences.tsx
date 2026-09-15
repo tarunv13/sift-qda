@@ -2,10 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 
 import { api } from "../../lib/api";
 import type { QuotedReference } from "../../lib/types";
+import { undo } from "../../lib/undo";
 import { useProject } from "../../state/ProjectContext";
 import { Icon } from "../ui/Icon";
 import { PanelEmpty } from "../ui/PanelEmpty";
+import { NodeActions } from "./NodeActions";
 import { NodeDetails } from "./NodeDetails";
+import { RecodeMenu } from "./RecodeMenu";
 
 /** Everything coded at the selected code, grouped by source. */
 export function NodeReferences() {
@@ -37,12 +40,16 @@ export function NodeReferences() {
   }
 
   async function uncode(reference: QuotedReference) {
-    if (await run(api.deleteCodingReference(reference.id).then(() => true))) referencesChanged();
+    if (!(await run(api.deleteCodingReference(reference.id).then(() => true)))) return;
+    const { sourceId, startIndex, endIndex, nodeId: codeId } = reference;
+    undo.push("uncoding a passage", () => api.saveCodingReference(sourceId, startIndex, endIndex, codeId));
+    referencesChanged();
   }
 
   return (
     <div className="p-4">
       <NodeDetails key={node.id} node={node} />
+      <NodeActions node={node} />
       {refs === null ? null : refs.length === 0 ? (
         <PanelEmpty icon="quote" title="Nothing coded yet">
           Select a passage in any source and attach “{node.name}”.
@@ -60,7 +67,7 @@ export function NodeReferences() {
                   <button
                     type="button"
                     onClick={() => reveal(r.sourceId, r.startIndex, r.endIndex)}
-                    className="block w-full rounded-lg border border-line bg-surface py-2.5 pr-8 pl-3 text-left shadow-sm transition-[transform,box-shadow] duration-200 ease-out-expo hover:-translate-y-px hover:shadow-md"
+                    className="block w-full rounded-lg border border-line bg-surface py-2.5 pr-14 pl-3 text-left shadow-sm transition-[transform,box-shadow] duration-200 ease-out-expo hover:-translate-y-px hover:shadow-md"
                     style={{ borderLeft: `3px solid ${node.color}` }}
                   >
                     <span className="line-clamp-5 font-reading text-[14px] leading-relaxed whitespace-pre-line text-ink">{r.text}</span>
@@ -74,6 +81,7 @@ export function NodeReferences() {
                   >
                     <Icon name="x" size={13} />
                   </button>
+                  <RecodeMenu reference={r} node={node} />
                 </li>
               ))}
             </ul>

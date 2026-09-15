@@ -87,7 +87,7 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 | Area | What you get |
 | --- | --- |
 | Coding | Select text, pick or create a code from a floating menu. Overlapping codes stack. |
-| Codebook | Hierarchical codes (themes and sub-codes), colours, descriptions, every reference per code |
+| Codebook | Hierarchical codes (themes and sub-codes), colours, descriptions, every reference per code. Drag to reorganise, merge codes, move a passage to another code, and undo coding steps with Ctrl+Z |
 | Word documents | `.docx`, `.doc` and `.odt`, keeping headings, lists and table rows |
 | PDFs | Text with page numbers kept for every coded passage, plus the rendered page alongside |
 | Spreadsheets | `.xlsx`, `.xls`, `.ods`: row 1 becomes attributes, each row becomes a case |

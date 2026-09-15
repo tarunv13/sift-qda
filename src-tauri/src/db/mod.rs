@@ -1,5 +1,6 @@
 pub mod annotations;
 pub mod cases;
+pub mod code_ops;
 pub mod links;
 pub mod memos;
 pub mod nodes;

@@ -6,6 +6,7 @@ import { api } from "../../lib/api";
 import { nextColor } from "../../lib/colors";
 import { posToOffset, type ParagraphIndex } from "../../lib/offsets";
 import type { CodeNode } from "../../lib/types";
+import { undo } from "../../lib/undo";
 import { useProject } from "../../state/ProjectContext";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
@@ -48,6 +49,7 @@ export function AttachCodeMenu({ editor, sourceId, index, onCoded }: Props) {
     if (end <= start) return;
     const reference = await run(api.saveCodingReference(sourceId, start, end, node.id));
     if (!reference) return;
+    undo.push(`coding “${node.name}”`, () => api.deleteCodingReference(reference.id));
     editor
       .chain()
       .setMeta(ALLOW_CHANGE, true)
