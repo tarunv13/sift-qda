@@ -6,11 +6,18 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-09-15
+
 ### Added
 
 - **How to cite:** the README gives APA and BibTeX citations and a sample methods sentence, and
   `CITATION.cff` names the author with an ORCID iD so GitHub's "Cite this repository" button credits
   the work correctly.
+
+### Fixed
+
+- Releases now archive on Zenodo: a `.zenodo.json` file gives Zenodo the software's metadata (author
+  with ORCID iD, licence, description) directly, after the 0.2.0 archive failed to read `CITATION.cff`.
 
 ## [0.2.0] - 2026-09-15
 
