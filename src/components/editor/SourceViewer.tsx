@@ -20,10 +20,12 @@ interface Props {
   onPage: (page: number) => void;
   /** Show a named stripe beside the text for each coded passage. */
   stripes: boolean;
+  /** Reports the code-point offset of the selection start (used to play audio from there). */
+  onCursor?: (offset: number) => void;
 }
 
 /** The coding surface: immutable source text with stacked CodeMark highlights. */
-export function SourceViewer({ source, references, onCoded, onPage, stripes }: Props) {
+export function SourceViewer({ source, references, onCoded, onPage, stripes, onCursor }: Props) {
   const { focus, selectNode } = useProject();
   const index = useMemo(() => indexParagraphs(source.content), [source.content]);
   const scroller = useRef<HTMLDivElement>(null);
@@ -41,7 +43,9 @@ export function SourceViewer({ source, references, onCoded, onPage, stripes }: P
     },
     onSelectionUpdate: ({ editor: e }) => {
       const { from, empty } = e.state.selection;
-      if (!empty && source.pages.length) onPage(pageAt(source.pages, posToOffset(e.state.doc, from, index)));
+      const offset = posToOffset(e.state.doc, from, index);
+      onCursor?.(offset);
+      if (!empty && source.pages.length) onPage(pageAt(source.pages, offset));
     },
   });
 

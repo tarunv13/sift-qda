@@ -49,6 +49,12 @@ All notable changes to this project are documented here. The format follows
   for sub-code suggestions drawn from a code's passages, each added with one click (and undoable).
   Uses a local chat model through Ollama (`llama3.2:3b` by default, set under Local AI), so nothing
   leaves the computer. Summaries say which model drafted them.
+- **Audio transcription:** the microphone button next to Sources runs a transcriber already on your
+  computer (a folder with `transcribe.py` and its `.venv`, chosen once) on an audio file, in English,
+  Hindi, Hinglish or Hindi with an English translation, optionally labelling speakers and taking
+  names and terms to spell right. Progress and a Cancel button stay visible. The transcript is
+  imported as a text source linked to the audio, and a player above the text plays from the
+  selected passage. Audio files picked in the normal import explain how to transcribe them instead.
 
 ### Changed
 

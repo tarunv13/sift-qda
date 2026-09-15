@@ -25,7 +25,10 @@ mod tests_matrix;
 mod tests_notes;
 #[cfg(test)]
 mod tests_query;
+#[cfg(test)]
+mod tests_transcribe;
 mod text;
+mod transcribe;
 
 use std::sync::Mutex;
 
@@ -34,7 +37,7 @@ use tauri::Manager;
 use commands::{
     analysis as analysis_cmd, assist, cases, code_ops, coding, excel as excel_cmd,
     matrix as matrix_cmd, memos, notes as notes_cmd, projects, query as query_cmd,
-    refi as refi_cmd, search, sources,
+    refi as refi_cmd, search, sources, transcribe as transcribe_cmd,
 };
 use state::AppState;
 
@@ -90,6 +93,10 @@ pub fn run() {
             cases::create_cases_for_sources,
             assist::ai_summarise,
             assist::ai_suggest_subcodes,
+            transcribe_cmd::get_transcriber,
+            transcribe_cmd::set_transcriber_folder,
+            transcribe_cmd::transcribe_audio,
+            transcribe_cmd::cancel_transcription,
             search::semantic_search,
             search::text_search,
             search::embedding_status,

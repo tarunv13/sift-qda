@@ -19,6 +19,8 @@ pub enum AppError {
     Embed(String),
     #[error("local AI: {0}")]
     Ai(String),
+    #[error("transcription: {0}")]
+    Transcribe(String),
     #[error("{0}")]
     Invalid(String),
 }

@@ -92,6 +92,7 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 | PDFs | Text with page numbers kept for every coded passage, plus the rendered page alongside |
 | Spreadsheets | `.xlsx`, `.xls`, `.ods`: row 1 becomes attributes, each row becomes a case |
 | Plain text | `.txt` transcripts |
+| Audio interviews | Transcribe `.wav`, `.mp3`, `.m4a`, `.flac` and other audio with a Whisper-style transcriber already on your computer (a folder with `transcribe.py` and its `.venv`): English, Hindi or Hinglish, with optional speaker labels. The transcript becomes a source, and the audio plays from any passage you select |
 | Semantic search | Local `nomic-embed-text` embeddings with int8-quantised `sqlite-vec` search |
 | Exact search | Phrase search that works with no model installed |
 | Local AI assistant | Summarise a source, a code's passages or a case into a linked memo, and get sub-code suggestions you can add in one click. Runs a local chat model (`llama3.2:3b` by default) through Ollama; nothing leaves the computer |
@@ -200,7 +201,7 @@ Ideas, not promises. Upvote or discuss them in
 [Issues](https://github.com/tarunv13/sift-qda/issues).
 
 - [ ] macOS and Linux builds
-- [ ] Audio and video sources with local transcription (Whisper)
+- [x] Audio interviews with local transcription
 - [ ] Coding regions of PDFs and images
 - [ ] Code co-occurrence matrix and charts
 - [ ] Inter-coder agreement (Cohen's kappa) for team projects
@@ -213,7 +214,7 @@ Ideas, not promises. Upvote or discuss them in
 - Scanned PDFs have no text layer. Run OCR before importing.
 - REFI-QDA export writes every source as text; original PDFs and PDF-region codings from other
   tools are not carried over.
-- Audio, video and image sources are not supported yet.
+- Video and image sources are not supported. Audio needs a local transcriber folder (see Features).
 - Windows only for now.
 
 ## Contributing

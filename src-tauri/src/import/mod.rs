@@ -40,6 +40,9 @@ pub fn parse(path: &Path) -> AppResult<Parsed> {
         "odt" => odt::parse(path),
         "pdf" => pdf::parse(path),
         "xlsx" | "xls" | "xlsm" | "ods" => xlsx::parse(path),
+        _ if crate::transcribe::is_audio(path) => Err(AppError::Invalid(
+            "audio files are transcribed rather than imported: use Transcribe audio".into(),
+        )),
         other => Err(AppError::Invalid(format!(
             "unsupported file type: .{other}"
         ))),

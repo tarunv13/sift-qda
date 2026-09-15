@@ -8,6 +8,7 @@ pub mod migrate;
 pub mod nodes;
 pub mod projects;
 pub mod references;
+pub mod settings;
 pub mod sources;
 
 use std::os::raw::{c_char, c_int};
