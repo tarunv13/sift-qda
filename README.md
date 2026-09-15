@@ -39,7 +39,8 @@ Export your themes to Excel, or move the whole project to NVivo, ATLAS.ti or MAX
 
 - **Your data never leaves the machine.** No account, no cloud sync, no telemetry. Transcripts
   that contain health, legal or personal details stay on your disk, which matters when an ethics
-  board, a data-sharing agreement or a client contract rules out cloud tools.
+  board, a data-sharing agreement or a client contract rules out cloud tools. See
+  [Protecting research data](SECURITY.md#protecting-research-data).
 - **Free, with no catch.** No licence server, no student edition with a project cap, no
   subscription that locks your old projects when it lapses.
 - **No lock-in.** Projects import and export as REFI-QDA (`.qdpx`), the exchange standard that

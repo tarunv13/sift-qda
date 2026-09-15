@@ -37,3 +37,26 @@ fixtures/
 data/
 .env
 .env.*
+
+# Recordings, transcripts and documents are research material. Add a deliberate, made-up sample
+# with `git add -f`.
+transcripts/
+exports/
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.opus
+*.aac
+*.wma
+*.srt
+*.vtt
+*.docx
+*.doc
+*.odt
+*.pdf
+*.xlsx
+*.xls
+*.ods
+*.csv

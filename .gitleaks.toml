@@ -1,0 +1,40 @@
+# Secret and personal-data scan for Sift QDA, run by .github/workflows/secret-scan.yml.
+# Gitleaks' default rules find API keys and tokens; the rules below also stop personal details
+# (home-folder paths, personal email addresses) from reaching this public repository.
+
+title = "Sift QDA secrets and personal data"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "windows-home-path"
+description = "Absolute path inside a Windows user folder (reveals a user name)"
+regex = '''(?i)\b[a-z]:[\\/]{1,2}users[\\/]{1,2}[a-z0-9._ -]{2,}'''
+keywords = ["users"]
+
+[[rules]]
+id = "unix-home-path"
+description = "Absolute path inside a macOS or Linux home folder (reveals a user name)"
+regex = '''(?:/home/|/Users/)[A-Za-z0-9._-]{2,}/'''
+keywords = ["/home/", "/users/"]
+
+[[rules]]
+id = "personal-email"
+description = "Email address at a personal mail provider"
+regex = '''(?i)\b[a-z0-9._%+-]+@(?:g(?:oogle)?mail|outlook|hotmail|live|yahoo|icloud|me|proton|protonmail|pm|aol|gmx|zoho|yandex|rediffmail)\.[a-z.]{2,}\b'''
+keywords = ["@"]
+
+[allowlist]
+description = "Generated files and addresses that are meant to be public"
+paths = [
+  '''(^|/)package-lock\.json$''',
+  '''(^|/)Cargo\.lock$''',
+  '''\.(png|jpe?g|gif|ico|icns|webp)$''',
+]
+regexTarget = "match"
+regexes = [
+  '''users\.noreply\.github\.com''',
+  '''noreply@anthropic\.com''',
+  '''@example\.(com|org|net)''',
+]
