@@ -19,6 +19,11 @@ All notable changes to this project are documented here. The format follows
   interview fillers and speaker labels such as "P01:" can be left out, and individual words can be
   hidden. Clicking a word lists every occurrence in context; clicking an occurrence opens the source
   at that spot. Charts use Apache ECharts and d3-cloud and follow the light and dark themes.
+- **Explore → matrix coding:** a heatmap or table of how many coded passages each code has in each
+  source, case, or value of a case attribute. Rows can be every code or top-level themes with their
+  sub-codes rolled up, counting a passage once even when several of those codes mark it. Click a cell
+  to read its passages and jump to them; export the matrix to Excel with row and column totals.
+  Cases not linked to a source are counted and reported rather than silently dropped.
 
 ### Changed
 

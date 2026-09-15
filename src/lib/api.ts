@@ -3,6 +3,8 @@ import { invoke } from "@tauri-apps/api/core";
 import type {
   AnalysisScope,
   CaseTable,
+  CellPassage,
+  CodingMatrix,
   CodeNode,
   CodingReference,
   EmbeddingConfig,
@@ -10,6 +12,7 @@ import type {
   ImportSummary,
   IndexStatus,
   KeywordContext,
+  MatrixSpec,
   Memo,
   Project,
   QuotedReference,
@@ -76,6 +79,11 @@ export const api = {
     invoke<WordFrequency>("word_frequency", { projectId, scope, options }),
   keywordContexts: (projectId: number, scope: AnalysisScope, word: string, skipSpeakers: boolean) =>
     invoke<KeywordContext[]>("keyword_contexts", { projectId, scope, word, skipSpeakers }),
+  codingMatrix: (projectId: number, spec: MatrixSpec) => invoke<CodingMatrix>("coding_matrix", { projectId, spec }),
+  matrixCellPassages: (projectId: number, codeId: number, rolledUp: boolean, sourceIds: number[]) =>
+    invoke<CellPassage[]>("matrix_cell_passages", { projectId, codeId, rolledUp, sourceIds }),
+  exportMatrixExcel: (projectId: number, spec: MatrixSpec, path: string) =>
+    invoke<void>("export_matrix_excel", { projectId, spec, path }),
 
   // REFI-QDA
   importQdpx: (path: string) => invoke<ImportSummary>("import_qdpx", { path }),
