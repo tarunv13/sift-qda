@@ -1,8 +1,10 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 
 import { api } from "../../lib/api";
+import type { TranscriptMeta } from "../../lib/transcribeTypes";
 import type { CodingReference, Source } from "../../lib/types";
 import { useProject } from "../../state/ProjectContext";
+import { AudioBar } from "./AudioBar";
 import { EmptySource, SourceHeader } from "./SourceChrome";
 import { SourceViewer } from "./SourceViewer";
 
@@ -17,6 +19,7 @@ export function SourcePane() {
   const [refs, setRefs] = useState<{ sourceId: number; items: CodingReference[] } | null>(null);
   const [showPage, setShowPage] = useState(true);
   const [page, setPage] = useState(1);
+  const [cursor, setCursor] = useState<number | null>(null);
   const [stripes, setStripes] = useState(() => {
     try {
       return localStorage.getItem(STRIPES_KEY) === "on";
@@ -43,6 +46,7 @@ export function SourcePane() {
       if (live && loaded) {
         setSource(loaded);
         setPage(1);
+        setCursor(null);
       }
     });
     return () => {
@@ -77,6 +81,7 @@ export function SourcePane() {
   }
 
   const hasPage = source.kind === "pdf" && Boolean(source.filePath) && source.pages.length > 0;
+  const transcript = source.filePath ? (source.metadata.transcript as TranscriptMeta | undefined) : undefined;
 
   function showTextForPage(target: number) {
     const range = source?.pages.find((p) => p.page === target);
@@ -94,13 +99,14 @@ export function SourcePane() {
         showStripes={stripes}
         onToggleStripes={toggleStripes}
       />
+      {transcript ? <AudioBar source={source} meta={transcript} cursor={cursor} /> : null}
       <div className="flex min-h-0 flex-1">
         {hasPage && showPage ? (
           <Suspense fallback={<div className="w-[42%] min-w-[300px] border-r border-line bg-panel/40" />}>
             <PdfPane sourceId={source.id} page={page} pageCount={source.pages.length} onPage={setPage} onShowText={showTextForPage} />
           </Suspense>
         ) : null}
-        <SourceViewer key={source.id} source={source} references={refs.items} onCoded={referencesChanged} onPage={setPage} stripes={stripes} />
+        <SourceViewer key={source.id} source={source} references={refs.items} onCoded={referencesChanged} onPage={setPage} stripes={stripes} onCursor={setCursor} />
       </div>
     </main>
   );

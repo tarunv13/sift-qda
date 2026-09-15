@@ -57,6 +57,12 @@ export const TOURS: Record<TourId, TourStep[]> = {
       body: "Import Word, PDF, OpenDocument and text files, or survey spreadsheets, with the + button. The number beside each source counts its coded passages.",
     },
     {
+      target: at("transcribe"),
+      placement: "right",
+      title: "Transcribe interviews",
+      body: "Turn an audio recording into a transcript on this computer, using the transcriber you already have, then code it like any text. Select a passage to play the audio from that moment.",
+    },
+    {
       target: '[data-tour="workspace"] > :nth-child(2)',
       placement: "over",
       title: "Code by highlighting",

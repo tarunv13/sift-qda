@@ -26,6 +26,7 @@ import type {
   WordOptions,
 } from "./types";
 import type { AssistTarget, CodeSuggestion } from "./assistTypes";
+import type { TranscriberStatus, TranscriptionOptions } from "./transcribeTypes";
 
 export const api = {
   // Projects
@@ -83,6 +84,13 @@ export const api = {
   // Local AI assistant (runs through Ollama on this computer)
   aiSummarise: (target: AssistTarget) => invoke<Memo>("ai_summarise", { target }),
   aiSuggestSubcodes: (nodeId: number) => invoke<CodeSuggestion[]>("ai_suggest_subcodes", { nodeId }),
+
+  // Audio transcription with the user's local transcriber
+  getTranscriber: () => invoke<TranscriberStatus>("get_transcriber"),
+  setTranscriberFolder: (folder: string) => invoke<TranscriberStatus>("set_transcriber_folder", { folder }),
+  transcribeAudio: (projectId: number, path: string, jobId: string, options: TranscriptionOptions) =>
+    invoke<number>("transcribe_audio", { projectId, path, jobId, options }),
+  cancelTranscription: (jobId: string) => invoke<boolean>("cancel_transcription", { jobId }),
 
   // Search and local AI
   semanticSearch: (projectId: number, query: string, limit = 20) =>

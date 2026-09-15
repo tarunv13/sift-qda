@@ -6,6 +6,7 @@ import type { SourceKind, SourceSummary } from "../../lib/types";
 import { useProject } from "../../state/ProjectContext";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
+import { TranscribeDialog } from "../transcribe/TranscribeDialog";
 import { SectionHeader } from "../ui/SectionHeader";
 
 const FILTERS = [
@@ -16,6 +17,7 @@ const KIND_LABEL: Record<SourceKind, string> = { text: "TXT", docx: "DOC", pdf: 
 export function SourceList() {
   const { project, sources, sourceId, selectSource, refresh, run, notify } = useProject();
   const [busy, setBusy] = useState(false);
+  const [transcribing, setTranscribing] = useState(false);
 
   async function importFiles() {
     if (!project) return;
@@ -49,11 +51,24 @@ export function SourceList() {
         title="Sources"
         count={sources.length}
         action={
-          <Button size="icon" variant="ghost" onClick={importFiles} disabled={busy} aria-label="Import files" title="Import files">
-            <Icon name={busy ? "sparkle" : "plus"} className={busy ? "animate-spin" : ""} />
-          </Button>
+          <div className="flex items-center gap-0.5">
+            <Button
+              size="icon"
+              variant="ghost"
+              onClick={() => setTranscribing(true)}
+              aria-label="Transcribe audio"
+              title="Transcribe audio"
+              data-tour="transcribe"
+            >
+              <Icon name="mic" />
+            </Button>
+            <Button size="icon" variant="ghost" onClick={importFiles} disabled={busy} aria-label="Import files" title="Import files">
+              <Icon name={busy ? "sparkle" : "plus"} className={busy ? "animate-spin" : ""} />
+            </Button>
+          </div>
         }
       />
+      {transcribing ? <TranscribeDialog onClose={() => setTranscribing(false)} /> : null}
       {sources.length === 0 ? (
         <button
           type="button"
@@ -62,7 +77,7 @@ export function SourceList() {
         >
           <Icon name="upload" size={20} className="animate-float text-accent" />
           <span className="font-medium text-ink">Import your first sources</span>
-          <span className="text-xs">Word, PDF, text or survey spreadsheets</span>
+          <span className="text-xs">Word, PDF, text or survey spreadsheets. Transcribe audio with the microphone button.</span>
         </button>
       ) : (
         <ul className="mt-0.5 space-y-px">
