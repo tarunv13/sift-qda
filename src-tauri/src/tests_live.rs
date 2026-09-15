@@ -22,6 +22,7 @@ fn live_semantic_search_ranks_by_meaning() {
     let embedder = Embedder::new(&EmbeddingConfig {
         url: DEFAULT_URL.into(),
         model: DEFAULT_MODEL.into(),
+        chat_model: String::new(),
     });
     let texts: Vec<String> = passages.iter().map(|p| p.to_string()).collect();
     let embeddings = embedder.embed_documents(&texts).expect("Ollama embeddings");

@@ -45,6 +45,10 @@ All notable changes to this project are documented here. The format follows
 - **Editable cases:** add cases and attributes, rename them, edit values in place, link a case to a
   source, delete either, or create a case for every source that has none. Memos can be linked to a
   case from its row.
+- **Local AI assistant:** summarise a source, a code's passages or a case into a linked memo, and ask
+  for sub-code suggestions drawn from a code's passages, each added with one click (and undoable).
+  Uses a local chat model through Ollama (`llama3.2:3b` by default, set under Local AI), so nothing
+  leaves the computer. Summaries say which model drafted them.
 
 ### Changed
 

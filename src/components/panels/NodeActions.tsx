@@ -6,6 +6,8 @@ import { codeOptions } from "../../lib/codePaths";
 import type { CodeNode } from "../../lib/types";
 import { undo } from "../../lib/undo";
 import { useProject } from "../../state/ProjectContext";
+import { SuggestSubcodes } from "../assist/SuggestSubcodes";
+import { SummariseButton } from "../assist/SummariseButton";
 import { subtreeOf, useMoveCode } from "../sidebar/useMoveCode";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
@@ -72,10 +74,14 @@ export function NodeActions({ node }: { node: CodeNode }) {
           ))}
         </select>
       </label>
-      <Button size="sm" variant="ghost" onClick={newMemo} className="w-full justify-center">
-        <Icon name="note" size={13} />
-        New memo on this code
-      </Button>
+      <div className="grid grid-cols-2 gap-1">
+        <Button size="sm" variant="ghost" onClick={newMemo} className="justify-center">
+          <Icon name="note" size={13} />
+          New memo
+        </Button>
+        <SummariseButton target={{ kind: "code", id: node.id }} label="Summarise" />
+      </div>
+      <SuggestSubcodes node={node} />
     </div>
   );
 }

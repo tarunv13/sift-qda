@@ -96,6 +96,8 @@ export interface IndexStatus {
 export interface EmbeddingConfig {
   url: string;
   model: string;
+  /** Chat model for summaries and sub-code suggestions. */
+  chatModel: string;
 }
 
 export interface EmbeddingStatus {
