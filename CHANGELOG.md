@@ -24,6 +24,10 @@ All notable changes to this project are documented here. The format follows
   sub-codes rolled up, counting a passage once even when several of those codes mark it. Click a cell
   to read its passages and jump to them; export the matrix to Excel with row and column totals.
   Cases not linked to a source are counted and reported rather than silently dropped.
+- **Explore → coding query:** passages coded at one code on their own, and also at another (the
+  overlap), or at another (either), but not at another, or near another within a number of
+  characters. Include sub-codes, limit to cases with an attribute value, and save the results as a new
+  code in one step.
 
 ### Changed
 

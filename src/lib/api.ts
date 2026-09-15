@@ -14,6 +14,8 @@ import type {
   KeywordContext,
   MatrixSpec,
   Memo,
+  QueryResult,
+  QuerySpec,
   Project,
   QuotedReference,
   SearchHit,
@@ -84,6 +86,9 @@ export const api = {
     invoke<CellPassage[]>("matrix_cell_passages", { projectId, codeId, rolledUp, sourceIds }),
   exportMatrixExcel: (projectId: number, spec: MatrixSpec, path: string) =>
     invoke<void>("export_matrix_excel", { projectId, spec, path }),
+  codingQuery: (projectId: number, spec: QuerySpec) => invoke<QueryResult>("coding_query", { projectId, spec }),
+  codeQueryResults: (projectId: number, spec: QuerySpec, name: string, color: string) =>
+    invoke<number>("code_query_results", { projectId, spec, name, color }),
 
   // REFI-QDA
   importQdpx: (path: string) => invoke<ImportSummary>("import_qdpx", { path }),

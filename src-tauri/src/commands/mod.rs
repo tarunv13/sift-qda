@@ -7,6 +7,7 @@ pub mod excel;
 pub mod matrix;
 pub mod memos;
 pub mod projects;
+pub mod query;
 pub mod refi;
 pub mod search;
 pub mod sources;
