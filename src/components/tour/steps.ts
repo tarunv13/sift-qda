@@ -82,6 +82,12 @@ export const TOURS: Record<TourId, TourStep[]> = {
       body: "Every passage for the selected code, across all sources. Click one to jump to it in the text.",
     },
     {
+      target: at("tab-notes"),
+      placement: "left",
+      title: "Annotations and links",
+      body: "Select a passage and choose Annotate to comment on it, or Link to connect it with another passage in any source. The Notes tab lists both for the open source.",
+    },
+    {
       target: at("tab-search"),
       placement: "left",
       title: "Search",

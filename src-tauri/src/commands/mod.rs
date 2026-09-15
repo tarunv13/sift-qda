@@ -6,6 +6,7 @@ pub mod coding;
 pub mod excel;
 pub mod matrix;
 pub mod memos;
+pub mod notes;
 pub mod projects;
 pub mod query;
 pub mod refi;

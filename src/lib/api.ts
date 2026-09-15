@@ -16,6 +16,7 @@ import type {
   Memo,
   QueryResult,
   QuerySpec,
+  SourceNotes,
   Project,
   QuotedReference,
   SearchHit,
@@ -89,6 +90,16 @@ export const api = {
   codingQuery: (projectId: number, spec: QuerySpec) => invoke<QueryResult>("coding_query", { projectId, spec }),
   codeQueryResults: (projectId: number, spec: QuerySpec, name: string, color: string) =>
     invoke<number>("code_query_results", { projectId, spec, name, color }),
+
+  // Annotations and see-also links
+  listSourceNotes: (sourceId: number) => invoke<SourceNotes>("list_source_notes", { sourceId }),
+  createAnnotation: (sourceId: number, start: number, end: number, body: string) =>
+    invoke<number>("create_annotation", { sourceId, start, end, body }),
+  updateAnnotation: (id: number, body: string) => invoke<void>("update_annotation", { id, body }),
+  deleteAnnotation: (id: number) => invoke<void>("delete_annotation", { id }),
+  createPassageLink: (fromSource: number, fromStart: number, fromEnd: number, toSource: number, toStart: number, toEnd: number) =>
+    invoke<number>("create_passage_link", { fromSource, fromStart, fromEnd, toSource, toStart, toEnd }),
+  deletePassageLink: (id: number) => invoke<void>("delete_passage_link", { id }),
 
   // REFI-QDA
   importQdpx: (path: string) => invoke<ImportSummary>("import_qdpx", { path }),
