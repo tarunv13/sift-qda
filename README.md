@@ -91,6 +91,8 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 | Memos and cases | Autosaving memos linked to sources, and a case/attribute table |
 | Excel export | Coded extracts, codebook, codes × documents, documents, memos |
 | REFI-QDA | `.qdpx` import and export: codes, sources, codings, variables, cases, notes |
+| Guided tour | A first-run walkthrough spotlights each part of the app and what it does; replay it from **Tour** |
+| Themes | Light and dark, or match Windows, switchable from the status bar |
 
 ## Getting started
 

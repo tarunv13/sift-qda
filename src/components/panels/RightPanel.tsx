@@ -41,6 +41,7 @@ export function RightPanel() {
             key={t.id}
             type="button"
             role="tab"
+            data-tour={`tab-${t.id}`}
             aria-selected={t.id === tab}
             onClick={() => go(t.id)}
             className={`flex-1 text-sm transition-colors duration-150 ${t.id === tab ? "text-ink" : "text-muted hover:text-ink"}`}

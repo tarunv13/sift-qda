@@ -37,16 +37,16 @@ export function Sidebar() {
   return (
     <aside className="animate-slide-panel flex min-h-0 flex-col border-r border-line bg-panel/60">
       <div className="flex h-12 items-center gap-1 border-b border-line px-2">
-        <Button size="icon" variant="ghost" onClick={() => openProject(null)} aria-label="All projects" title="All projects">
+        <Button size="icon" variant="ghost" onClick={() => openProject(null)} aria-label="All projects" title="All projects" data-tour="projects">
           <Icon name="back" />
         </Button>
         <h1 className="flex-1 truncate font-reading text-[15px] text-ink" title={project?.name}>
           {project?.name}
         </h1>
-        <Button size="icon" variant="ghost" onClick={exportExcel} aria-label="Export to Excel" title="Export to Excel (.xlsx)">
+        <Button size="icon" variant="ghost" onClick={exportExcel} aria-label="Export to Excel" title="Export to Excel (.xlsx)" data-tour="export-excel">
           <Icon name="table" />
         </Button>
-        <Button size="icon" variant="ghost" onClick={exportProject} aria-label="Export as REFI-QDA" title="Export as REFI-QDA (.qdpx)">
+        <Button size="icon" variant="ghost" onClick={exportProject} aria-label="Export as REFI-QDA" title="Export as REFI-QDA (.qdpx)" data-tour="export-qdpx">
           <Icon name="download" />
         </Button>
       </div>

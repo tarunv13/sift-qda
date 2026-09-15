@@ -4,6 +4,21 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+
+### Added
+
+- Guided tour for first-time users: a spotlight walks through the projects screen and the workspace
+  (sources, coding, codes, coded passages, search, memos, cases, exports, local AI), with a short
+  animation of how coding works. It starts automatically once per screen and can be replayed from
+  the **Tour** button. Arrow keys move between steps and Esc closes it.
+- Light, dark and match-Windows themes, switchable from the status bar and the projects screen. The
+  choice is remembered and the window title bar follows it.
+
+### Changed
+
+- The light palette is brighter and closer to white.
+
 ## [0.1.0] - 2026-09-15
 
 First public release.
