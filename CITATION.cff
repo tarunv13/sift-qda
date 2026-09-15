@@ -12,6 +12,14 @@ authors:
     family-names: "Verma"
     orcid: "https://orcid.org/0009-0009-4130-2455"
 version: 0.2.1
+doi: 10.5281/zenodo.22774118
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22774118
+    description: "All versions of Sift QDA (resolves to the latest release)"
+  - type: doi
+    value: 10.5281/zenodo.22774119
+    description: "Sift QDA 0.2.1"
 date-released: 2026-09-15
 license:
   - MIT

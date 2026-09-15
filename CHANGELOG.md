@@ -6,6 +6,10 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- Zenodo DOIs: a DOI badge in the README, DOIs in the How to cite section, and `doi` and`  `identifiers` in `CITATION.cff` (all versions: 10.5281/zenodo.22774118; 0.2.1: 10.5281/zenodo.22774119).
+
 ## [0.2.1] - 2026-09-15
 
 ### Added

@@ -12,6 +12,7 @@ Export your themes to Excel, or move the whole project to NVivo, ATLAS.ti or MAX
 [![CI](https://github.com/tarunv13/sift-qda/actions/workflows/ci.yml/badge.svg)](https://github.com/tarunv13/sift-qda/actions/workflows/ci.yml)
 [![Latest release](https://img.shields.io/github/v/release/tarunv13/sift-qda?include_prereleases)](https://github.com/tarunv13/sift-qda/releases)
 [![License: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)](#license)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22774118.svg)](https://doi.org/10.5281/zenodo.22774118)
 ![Platform: Windows](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078d4)
 
 [Download](https://github.com/tarunv13/sift-qda/releases/latest) ·
@@ -230,7 +231,7 @@ or copy one of these, replacing the version with the one you used:
 
 **APA 7**
 
-> Verma, T. K. (2026). *Sift QDA: Local-first qualitative data analysis* (Version 0.2.1) [Computer software]. https://github.com/tarunv13/sift-qda
+> Verma, T. K. (2026). *Sift QDA: Local-first qualitative data analysis* (Version 0.2.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22774119
 
 **BibTeX**
 
@@ -240,6 +241,7 @@ or copy one of these, replacing the version with the one you used:
   title   = {Sift QDA: Local-first qualitative data analysis},
   year    = {2026},
   version = {0.2.1},
+  doi     = {10.5281/zenodo.22774119},
   url     = {https://github.com/tarunv13/sift-qda},
   license = {MIT OR Apache-2.0}
 }
@@ -250,8 +252,10 @@ or copy one of these, replacing the version with the one you used:
 > Interview transcripts were coded thematically in Sift QDA version 0.2.1 (Verma, 2026), an
 > open-source qualitative data analysis application that stores and processes all data locally.
 
-Releases are being archived on [Zenodo](https://zenodo.org) so that each version has a permanent DOI.
-Once the first archive is live, its DOI will appear here and in the citation file.
+Every release is archived on [Zenodo](https://zenodo.org) with its own DOI. To cite a specific version, use
+that version's DOI (0.2.1 is [10.5281/zenodo.22774119](https://doi.org/10.5281/zenodo.22774119)). To refer to Sift QDA
+in general, use the all-versions DOI [10.5281/zenodo.22774118](https://doi.org/10.5281/zenodo.22774118), which always
+resolves to the latest release.
 
 **Used Sift QDA in a paper, thesis, report or course?** Please
 [open an issue](https://github.com/tarunv13/sift-qda/issues/new?title=Used%20in%3A%20) with the
