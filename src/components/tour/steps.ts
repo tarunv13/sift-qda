@@ -73,7 +73,7 @@ export const TOURS: Record<TourId, TourStep[]> = {
       target: at("explore"),
       placement: "right",
       title: "Explore words and patterns",
-      body: "See the most frequent words as a word cloud, bars or a table, for the whole project, one source or one code. Click a word to read every place it appears.",
+      body: "Word frequency shows the most common words as a cloud, bars or a table; click a word to read every place it appears. Matrix coding compares codes across sources, cases or attributes as a heatmap you can export to Excel.",
     },
     {
       target: at("tab-coded"),

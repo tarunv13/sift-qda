@@ -95,6 +95,7 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 | Semantic search | Local `nomic-embed-text` embeddings with int8-quantised `sqlite-vec` search |
 | Exact search | Phrase search that works with no model installed |
 | Word frequency | Word cloud, bar chart or table of the most frequent words in the whole project, one source or one code. Leaves out common English or Hindi words and speaker labels; click a word to read every occurrence in context |
+| Matrix coding | Heatmap or table of how many passages each code, or each theme with its sub-codes, has in each source, case or attribute value. Click a cell to read its passages; export to Excel with totals |
 | Memos and cases | Autosaving memos linked to sources, and a case/attribute table |
 | Excel export | Coded extracts, codebook, codes × documents, documents, memos |
 | REFI-QDA | `.qdpx` import and export: codes, sources, codings, variables, cases, notes |
@@ -105,6 +106,12 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
   <img src="docs/screenshot-explore.png" alt="The Explore view: a word cloud of the most frequent words across the fictional demo study, with filters for scope, common words and minimum word length" width="100%">
   <br>
   <sub>Explore → word frequency on the fictional demo study. Click any word to read every occurrence in context.</sub>
+</p>
+
+<p align="center">
+  <img src="docs/screenshot-matrix.png" alt="Explore → matrix coding in the dark theme: a heatmap of codes by the Village attribute, with the passages behind one cell listed beside it" width="100%">
+  <br>
+  <sub>Explore → matrix coding: codes by a case attribute, with the passages behind a cell. Export any matrix to Excel.</sub>
 </p>
 
 ## Getting started

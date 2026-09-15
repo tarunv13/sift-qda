@@ -1,11 +1,11 @@
 // Apache ECharts, registered piece by piece so only the chart types Sift QDA uses are bundled.
-import { BarChart } from "echarts/charts";
-import { GridComponent, TooltipComponent } from "echarts/components";
+import { BarChart, HeatmapChart } from "echarts/charts";
+import { GridComponent, TooltipComponent, VisualMapPiecewiseComponent } from "echarts/components";
 import * as echarts from "echarts/core";
 import { SVGRenderer } from "echarts/renderers";
 import { useEffect, useState } from "react";
 
-echarts.use([BarChart, GridComponent, TooltipComponent, SVGRenderer]);
+echarts.use([BarChart, HeatmapChart, GridComponent, TooltipComponent, VisualMapPiecewiseComponent, SVGRenderer]);
 
 export { echarts };
 

@@ -2,6 +2,7 @@
 //! the codebook, a code × document frequency matrix, documents and memos.
 //! Written with office_oxide's XLSX writer, so no extra dependency.
 
+pub mod matrix;
 mod sheets;
 
 use std::collections::HashMap;
@@ -66,7 +67,7 @@ pub fn export(conn: &Connection, project_id: i64, dest: &Path) -> AppResult<()> 
 }
 
 /// Names from the top-level theme down to each code.
-fn code_paths(nodes: &[Node]) -> HashMap<i64, Vec<String>> {
+pub(crate) fn code_paths(nodes: &[Node]) -> HashMap<i64, Vec<String>> {
     let by_id: HashMap<i64, &Node> = nodes.iter().map(|n| (n.id, n)).collect();
     nodes
         .iter()

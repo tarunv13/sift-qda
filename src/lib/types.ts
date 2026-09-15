@@ -136,6 +136,32 @@ export interface KeywordContext {
   after: string;
 }
 
+export type MatrixColumns = { kind: "sources" } | { kind: "cases" } | { kind: "attribute"; id: number };
+
+export interface MatrixSpec {
+  themesOnly: boolean;
+  columns: MatrixColumns;
+}
+
+export interface CodingMatrix {
+  rows: { id: number; label: string; color: string; total: number }[];
+  columns: { label: string; sourceIds: number[]; total: number }[];
+  /** cells[row][column]: coded passages. */
+  cells: number[][];
+  unlinkedCases: number;
+  themesOnly: boolean;
+}
+
+export interface CellPassage {
+  sourceId: number;
+  sourceName: string;
+  start: number;
+  end: number;
+  text: string;
+  codeName: string;
+  color: string;
+}
+
 export interface ImportOutcome {
   path: string;
   name: string;

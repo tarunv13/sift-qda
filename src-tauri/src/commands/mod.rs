@@ -4,6 +4,7 @@ pub mod analysis;
 pub mod cases;
 pub mod coding;
 pub mod excel;
+pub mod matrix;
 pub mod memos;
 pub mod projects;
 pub mod refi;
