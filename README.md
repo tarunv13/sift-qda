@@ -17,6 +17,7 @@ Export your themes to Excel, or move the whole project to NVivo, ATLAS.ti or MAX
 [Download](https://github.com/tarunv13/sift-qda/releases/latest) ·
 [Who it's for](docs/use-cases.md) ·
 [Getting started](#getting-started) ·
+[How to cite](#how-to-cite) ·
 [Contributing](CONTRIBUTING.md)
 
 </div>
@@ -217,6 +218,44 @@ Ideas, not promises. Upvote or discuss them in
   tools are not carried over.
 - Video and image sources are not supported. Audio needs a local transcriber folder (see Features).
 - Windows only for now.
+
+## How to cite
+
+If Sift QDA helps your research, please cite it. A software citation lets readers and reviewers see
+exactly which tool and version produced your analysis, supports transparent qualitative methods, and
+keeps free, privacy-first research software visible and maintained.
+
+Use the **Cite this repository** button on the repository page (it reads [CITATION.cff](CITATION.cff))
+or copy one of these, replacing the version with the one you used:
+
+**APA 7**
+
+> Verma, T. K. (2026). *Sift QDA: Local-first qualitative data analysis* (Version 0.2.0) [Computer software]. https://github.com/tarunv13/sift-qda
+
+**BibTeX**
+
+```bibtex
+@software{verma_sift_qda_2026,
+  author  = {Verma, Tarun Kumar},
+  title   = {Sift QDA: Local-first qualitative data analysis},
+  year    = {2026},
+  version = {0.2.0},
+  url     = {https://github.com/tarunv13/sift-qda},
+  license = {MIT OR Apache-2.0}
+}
+```
+
+**In a methods section**, for example:
+
+> Interview transcripts were coded thematically in Sift QDA version 0.2.0 (Verma, 2026), an
+> open-source qualitative data analysis application that stores and processes all data locally.
+
+Releases are being archived on [Zenodo](https://zenodo.org) so that each version has a permanent DOI.
+Once the first archive is live, its DOI will appear here and in the citation file.
+
+**Used Sift QDA in a paper, thesis, report or course?** Please
+[open an issue](https://github.com/tarunv13/sift-qda/issues/new?title=Used%20in%3A%20) with the
+reference. Knowing where the tool is used helps decide what to build next.
 
 ## Contributing
 
