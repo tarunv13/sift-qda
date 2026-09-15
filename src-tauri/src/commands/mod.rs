@@ -2,6 +2,7 @@
 
 pub mod analysis;
 pub mod cases;
+pub mod code_ops;
 pub mod coding;
 pub mod excel;
 pub mod matrix;

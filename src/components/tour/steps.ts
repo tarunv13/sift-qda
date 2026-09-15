@@ -67,7 +67,7 @@ export const TOURS: Record<TourId, TourStep[]> = {
       target: at("codes"),
       placement: "right",
       title: "Codes are your themes",
-      body: "Nest codes under broader themes and give them colours. Click any code to gather every passage coded with it.",
+      body: "Nest codes under broader themes by dragging one onto another, and give them colours. Click any code to gather every passage coded with it. Undo a coding step from the status bar or with Ctrl+Z.",
     },
     {
       target: at("explore"),
@@ -79,7 +79,7 @@ export const TOURS: Record<TourId, TourStep[]> = {
       target: at("tab-coded"),
       placement: "left",
       title: "Coded passages",
-      body: "Every passage for the selected code, across all sources. Click one to jump to it in the text.",
+      body: "Every passage for the selected code, across all sources. Click one to jump to it in the text, or move it to another code. Above the list you can move the code, merge it into another, or start a memo on it.",
     },
     {
       target: at("tab-notes"),

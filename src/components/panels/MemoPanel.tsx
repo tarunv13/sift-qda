@@ -9,7 +9,7 @@ import { PanelEmpty } from "../ui/PanelEmpty";
 import { MemoEditor } from "./MemoEditor";
 
 export function MemoPanel() {
-  const { project, sourceId, sources, run } = useProject();
+  const { project, sourceId, sources, nodes, run } = useProject();
   const [memos, setMemos] = useState<Memo[]>([]);
   const [openId, setOpenId] = useState<number | null>(null);
 
@@ -34,6 +34,7 @@ export function MemoPanel() {
         key={open.id}
         memo={open}
         sourceName={sources.find((s) => s.id === open.sourceId)?.name}
+        nodeName={nodes.find((n) => n.id === open.nodeId)?.name}
         onBack={() => setOpenId(null)}
         onSaved={(saved) => setMemos((all) => all.map((m) => (m.id === saved.id ? saved : m)))}
         onDeleted={() => {

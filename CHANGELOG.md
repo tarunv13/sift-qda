@@ -35,6 +35,11 @@ All notable changes to this project are documented here. The format follows
   Link to connect it with another passage in the same or another source. A new Notes tab lists the
   open source's annotations (autosaving) and links, and opens either end in the reader. Both are
   removed with their source.
+- **Codebook housekeeping:** drag a code onto another to nest it (or onto the strip above the tree to
+  un-nest it), or pick where it sits from the Coded tab. Merge a code into another, moving its
+  passages, sub-codes and memos without duplicating passages coded at both. Move a single passage to
+  a different code. Start a memo on a code.
+- **Undo** for coding, uncoding, moving a passage and moving a code, from the status bar or Ctrl+Z.
 
 ### Changed
 

@@ -12,6 +12,8 @@ mod tests;
 #[cfg(test)]
 mod tests_analysis;
 #[cfg(test)]
+mod tests_code_ops;
+#[cfg(test)]
 mod tests_import;
 #[cfg(test)]
 mod tests_live;
@@ -28,8 +30,8 @@ use std::sync::Mutex;
 use tauri::Manager;
 
 use commands::{
-    analysis as analysis_cmd, cases, coding, excel as excel_cmd, matrix as matrix_cmd, memos,
-    notes as notes_cmd, projects, query as query_cmd, refi as refi_cmd, search, sources,
+    analysis as analysis_cmd, cases, code_ops, coding, excel as excel_cmd, matrix as matrix_cmd,
+    memos, notes as notes_cmd, projects, query as query_cmd, refi as refi_cmd, search, sources,
 };
 use state::AppState;
 
@@ -96,6 +98,8 @@ pub fn run() {
             notes_cmd::delete_annotation,
             notes_cmd::create_passage_link,
             notes_cmd::delete_passage_link,
+            code_ops::merge_nodes,
+            code_ops::recode_reference,
         ])
         .run(tauri::generate_context!())
         .expect("error while running Sift QDA");

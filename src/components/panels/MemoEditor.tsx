@@ -10,13 +10,14 @@ import { Icon } from "../ui/Icon";
 interface Props {
   memo: Memo;
   sourceName?: string;
+  nodeName?: string;
   onBack: () => void;
   onSaved: (memo: Memo) => void;
   onDeleted: () => void;
 }
 
 /** Autosaving memo editor (saves 600 ms after typing stops). */
-export function MemoEditor({ memo, sourceName, onBack, onSaved, onDeleted }: Props) {
+export function MemoEditor({ memo, sourceName, nodeName, onBack, onSaved, onDeleted }: Props) {
   const { run } = useProject();
   const [title, setTitle] = useState(memo.title);
   const [body, setBody] = useState(memo.body);
@@ -67,7 +68,9 @@ export function MemoEditor({ memo, sourceName, onBack, onSaved, onDeleted }: Pro
         aria-label="Memo title"
         className="rounded-md bg-transparent px-1 font-reading text-xl text-ink outline-none focus:ring-2 focus:ring-accent/30"
       />
-      {sourceName ? <p className="mt-1 px-1 text-xs text-muted">Linked to {sourceName}</p> : null}
+      {sourceName || nodeName ? (
+        <p className="mt-1 px-1 text-xs text-muted">Linked to {sourceName ?? `the code “${nodeName}”`}</p>
+      ) : null}
       <textarea
         autoFocus
         value={body}
