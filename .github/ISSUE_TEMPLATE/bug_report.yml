@@ -1,0 +1,57 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Please do not attach real research data** or screenshots showing
+        participant details or your personal file paths.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Import a .docx with a table
+        2. Select text inside the table
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Sift QDA version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Import (Word, PDF, spreadsheet, text)
+        - Coding and codes
+        - Search (exact or semantic)
+        - Memos and cases
+        - Excel export
+        - REFI-QDA import/export
+        - Installer or startup
+        - Other
+  - type: input
+    id: os
+    attributes:
+      label: Windows version
+      placeholder: "Windows 11 24H2"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error messages
+      description: Copy any error text shown in the app. Remove personal paths first.
+      render: text

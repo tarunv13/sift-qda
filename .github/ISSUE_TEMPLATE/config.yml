@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/tarunv13/sift-qda/discussions
+    about: Ask how to do something or share how you use Sift QDA.
+  - name: Report a security vulnerability
+    url: https://github.com/tarunv13/sift-qda/security/advisories/new
+    about: Please report security issues privately.

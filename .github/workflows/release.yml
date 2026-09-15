@@ -1,0 +1,44 @@
+name: Release
+
+# Push a tag such as v0.1.0 to build the Windows installers and attach them
+# to a draft GitHub release. Review the draft, then publish it.
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - uses: tauri-apps/tauri-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: Sift QDA ${{ github.ref_name }}
+          releaseBody: |
+            Download `Sift QDA_*_x64-setup.exe` and run it (no admin rights needed).
+            The `.msi` is for managed computers. Installers are not code-signed yet, so
+            Windows SmartScreen may ask you to choose **More info → Run anyway**.
+
+            See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for what changed.
+          releaseDraft: true
+          prerelease: false
