@@ -67,6 +67,7 @@ export interface Memo {
   projectId: number;
   sourceId: number | null;
   nodeId: number | null;
+  caseId: number | null;
   title: string;
   body: string;
   updatedAt: string;

@@ -60,7 +60,7 @@ export const TOURS: Record<TourId, TourStep[]> = {
       target: '[data-tour="workspace"] > :nth-child(2)',
       placement: "over",
       title: "Code by highlighting",
-      body: "Open a source, select a passage, then pick a code from the menu or type a new one. A passage can carry several codes at once.",
+      body: "Open a source, select a passage, then pick a code from the menu or type a new one. A passage can carry several codes at once. Turn on Stripes above the text to see every code named in a margin beside it.",
       demo: "coding",
     },
     {
@@ -103,7 +103,7 @@ export const TOURS: Record<TourId, TourStep[]> = {
       target: at("tab-cases"),
       placement: "left",
       title: "Cases",
-      body: "Participants and their attributes, such as age or region, imported from a spreadsheet. Use them to compare groups.",
+      body: "Participants and their attributes, such as age or region. Import them from a spreadsheet or build them here: add cases and attributes, click a cell to edit it, link each case to its source, or create a case per source in one click. Use them to compare groups.",
     },
     {
       target: at("export-excel"),

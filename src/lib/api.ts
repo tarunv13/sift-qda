@@ -63,12 +63,21 @@ export const api = {
 
   // Memos and cases
   listMemos: (projectId: number) => invoke<Memo[]>("list_memos", { projectId }),
-  createMemo: (projectId: number, title: string, sourceId?: number | null, nodeId?: number | null) =>
-    invoke<Memo>("create_memo", { projectId, title, sourceId, nodeId }),
+  createMemo: (projectId: number, title: string, sourceId?: number | null, nodeId?: number | null, caseId?: number | null) =>
+    invoke<Memo>("create_memo", { projectId, title, sourceId, nodeId, caseId }),
   updateMemo: (id: number, title: string, body: string) =>
     invoke<Memo>("update_memo", { id, title, body }),
   deleteMemo: (id: number) => invoke<void>("delete_memo", { id }),
   getCaseTable: (projectId: number) => invoke<CaseTable>("get_case_table", { projectId }),
+  createCase: (projectId: number, name: string, sourceId: number | null) => invoke<number>("create_case", { projectId, name, sourceId }),
+  renameCase: (id: number, name: string) => invoke<void>("rename_case", { id, name }),
+  linkCaseSource: (id: number, sourceId: number | null) => invoke<void>("link_case_source", { id, sourceId }),
+  deleteCase: (id: number) => invoke<void>("delete_case", { id }),
+  createAttribute: (projectId: number, name: string) => invoke<number>("create_attribute", { projectId, name }),
+  renameAttribute: (id: number, name: string) => invoke<void>("rename_attribute", { id, name }),
+  deleteAttribute: (id: number) => invoke<void>("delete_attribute", { id }),
+  setCaseValue: (caseId: number, attributeId: number, value: string) => invoke<void>("set_case_value", { caseId, attributeId, value }),
+  createCasesForSources: (projectId: number) => invoke<number>("create_cases_for_sources", { projectId }),
 
   // Search and local AI
   semanticSearch: (projectId: number, query: string, limit = 20) =>

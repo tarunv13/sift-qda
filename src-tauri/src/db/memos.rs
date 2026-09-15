@@ -11,13 +11,14 @@ pub struct Memo {
     pub project_id: i64,
     pub source_id: Option<i64>,
     pub node_id: Option<i64>,
+    pub case_id: Option<i64>,
     pub title: String,
     pub body: String,
     pub updated_at: String,
 }
 
 const SELECT: &str =
-    "SELECT id, project_id, source_id, node_id, title, body, updated_at FROM memos";
+    "SELECT id, project_id, source_id, node_id, title, body, updated_at, case_id FROM memos";
 
 fn from_row(r: &Row) -> rusqlite::Result<Memo> {
     Ok(Memo {
@@ -25,6 +26,7 @@ fn from_row(r: &Row) -> rusqlite::Result<Memo> {
         project_id: r.get(1)?,
         source_id: r.get(2)?,
         node_id: r.get(3)?,
+        case_id: r.get(7)?,
         title: r.get(4)?,
         body: r.get(5)?,
         updated_at: r.get(6)?,
@@ -68,6 +70,15 @@ pub fn update(conn: &Connection, id: i64, title: &str, body: &str) -> AppResult<
         params![title, body, id],
     )?;
     get(conn, id)
+}
+
+/// Links a memo to a case, or unlinks it with `None`.
+pub fn link_case(conn: &Connection, id: i64, case_id: Option<i64>) -> AppResult<()> {
+    conn.execute(
+        "UPDATE memos SET case_id = ?1 WHERE id = ?2",
+        params![case_id, id],
+    )?;
+    Ok(())
 }
 
 pub fn delete(conn: &Connection, id: i64) -> AppResult<()> {

@@ -8,6 +8,7 @@ import { SourceViewer } from "./SourceViewer";
 
 // pdf.js is large; load it only when a PDF is opened.
 const PdfPane = lazy(() => import("../pdf/PdfPane").then((m) => ({ default: m.PdfPane })));
+const STRIPES_KEY = "siftqda:stripes";
 
 /** Loads the selected source and its references; hosts the text and optional PDF page. */
 export function SourcePane() {
@@ -16,6 +17,24 @@ export function SourcePane() {
   const [refs, setRefs] = useState<{ sourceId: number; items: CodingReference[] } | null>(null);
   const [showPage, setShowPage] = useState(true);
   const [page, setPage] = useState(1);
+  const [stripes, setStripes] = useState(() => {
+    try {
+      return localStorage.getItem(STRIPES_KEY) === "on";
+    } catch {
+      return false;
+    }
+  });
+
+  function toggleStripes() {
+    setStripes((on) => {
+      try {
+        localStorage.setItem(STRIPES_KEY, on ? "off" : "on");
+      } catch {
+        // Stripes still toggle for this session.
+      }
+      return !on;
+    });
+  }
 
   useEffect(() => {
     if (sourceId === null) return setSource(null);
@@ -72,6 +91,8 @@ export function SourcePane() {
         hasPage={hasPage}
         showPage={showPage}
         onTogglePage={() => setShowPage((v) => !v)}
+        showStripes={stripes}
+        onToggleStripes={toggleStripes}
       />
       <div className="flex min-h-0 flex-1">
         {hasPage && showPage ? (
@@ -79,7 +100,7 @@ export function SourcePane() {
             <PdfPane sourceId={source.id} page={page} pageCount={source.pages.length} onPage={setPage} onShowText={showTextForPage} />
           </Suspense>
         ) : null}
-        <SourceViewer key={source.id} source={source} references={refs.items} onCoded={referencesChanged} onPage={setPage} />
+        <SourceViewer key={source.id} source={source} references={refs.items} onCoded={referencesChanged} onPage={setPage} stripes={stripes} />
       </div>
     </main>
   );
