@@ -23,6 +23,10 @@ All notable changes to this project are documented here. The format follows
 ### Changed
 
 - The light palette is brighter and closer to white.
+- **Code colours** now come from eight hues checked for colour-blind safety and contrast in both
+  themes (the old set had near-identical blue and violet under red-green colour blindness). Colour
+  pickers announce colour names to screen readers. Existing codes keep their colours; choose a new
+  one from the code's colour dot.
 
 ## [0.1.0] - 2026-09-15
 

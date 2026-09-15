@@ -50,9 +50,9 @@ export function EmptySource() {
           <div className="absolute inset-0 translate-x-3 -rotate-6 rounded-xl border border-line bg-panel" />
           <div className="absolute inset-0 space-y-2 rounded-xl border border-line bg-surface p-3.5 shadow-md">
             <div className="h-1.5 w-full rounded bg-line" />
-            <div className="h-1.5 w-4/5 rounded bg-[color-mix(in_srgb,#e2a336_45%,transparent)]" />
+            <div className="h-1.5 w-4/5 rounded bg-[color-mix(in_srgb,#c98500_45%,transparent)]" />
             <div className="h-1.5 w-full rounded bg-line" />
-            <div className="h-1.5 w-3/5 rounded bg-[color-mix(in_srgb,#3499ad_45%,transparent)]" />
+            <div className="h-1.5 w-3/5 rounded bg-[color-mix(in_srgb,#199e70_45%,transparent)]" />
             <div className="h-1.5 w-11/12 rounded bg-line" />
           </div>
         </div>

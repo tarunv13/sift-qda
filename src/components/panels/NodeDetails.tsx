@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { api } from "../../lib/api";
-import { PALETTE } from "../../lib/colors";
+import { COLOR_NAMES, PALETTE } from "../../lib/colors";
 import type { CodeNode } from "../../lib/types";
 import { useProject } from "../../state/ProjectContext";
 
@@ -46,7 +46,8 @@ export function NodeDetails({ node }: { node: CodeNode }) {
               <button
                 key={swatch}
                 type="button"
-                aria-label={swatch}
+                aria-label={COLOR_NAMES[swatch]}
+                title={COLOR_NAMES[swatch]}
                 onClick={() => {
                   setEditingColor(false);
                   void save({ color: swatch });
