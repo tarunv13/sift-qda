@@ -10,6 +10,7 @@ import { useProject } from "../../state/ProjectContext";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
 import { ALLOW_CHANGE } from "./ReadOnlyText";
+import { SelectionNoteActions } from "./SelectionNoteActions";
 
 interface Props {
   editor: Editor;
@@ -112,6 +113,8 @@ export function AttachCodeMenu({ editor, sourceId, index, onCoded }: Props) {
                 <span className="truncate">{node.name}</span>
               </button>
             ))}
+            <span aria-hidden="true" className="mx-0.5 h-5 w-px bg-line" />
+            <SelectionNoteActions editor={editor} sourceId={sourceId} index={index} onDone={() => editor.commands.setTextSelection(editor.state.selection.to)} />
           </div>
         ) : (
           <div className="animate-pop w-64 p-1.5">

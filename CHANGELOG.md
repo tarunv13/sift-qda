@@ -31,6 +31,10 @@ All notable changes to this project are documented here. The format follows
 - **Explore → charts:** the code hierarchy as a treemap or sunburst sized by coded passages
   (including sub-codes), where clicking a code opens its passages; and one code across every source
   as a bar chart. Both have a table view.
+- **Annotations and see-also links:** select a passage and choose Annotate to attach a comment, or
+  Link to connect it with another passage in the same or another source. A new Notes tab lists the
+  open source's annotations (autosaving) and links, and opens either end in the reader. Both are
+  removed with their source.
 
 ### Changed
 

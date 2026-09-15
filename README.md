@@ -98,6 +98,7 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 | Matrix coding | Heatmap or table of how many passages each code, or each theme with its sub-codes, has in each source, case or attribute value. Click a cell to read its passages; export to Excel with totals |
 | Coding queries | Passages coded at one code and also, or, but not, or near another; include sub-codes, filter by a case attribute, and save the results as a new code |
 | Charts | The codebook as a treemap or sunburst sized by coded passages (click a code to read it), and one code across every source as bars, each with a table view |
+| Annotations and links | Comment on any passage, and link passages to each other within or across sources ("see also"); the Notes tab lists both and opens them in place |
 | Memos and cases | Autosaving memos linked to sources, and a case/attribute table |
 | Excel export | Coded extracts, codebook, codes × documents, documents, memos |
 | REFI-QDA | `.qdpx` import and export: codes, sources, codings, variables, cases, notes |

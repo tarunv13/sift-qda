@@ -18,6 +18,8 @@ mod tests_live;
 #[cfg(test)]
 mod tests_matrix;
 #[cfg(test)]
+mod tests_notes;
+#[cfg(test)]
 mod tests_query;
 mod text;
 
@@ -27,7 +29,7 @@ use tauri::Manager;
 
 use commands::{
     analysis as analysis_cmd, cases, coding, excel as excel_cmd, matrix as matrix_cmd, memos,
-    projects, query as query_cmd, refi as refi_cmd, search, sources,
+    notes as notes_cmd, projects, query as query_cmd, refi as refi_cmd, search, sources,
 };
 use state::AppState;
 
@@ -88,6 +90,12 @@ pub fn run() {
             matrix_cmd::export_matrix_excel,
             query_cmd::coding_query,
             query_cmd::code_query_results,
+            notes_cmd::list_source_notes,
+            notes_cmd::create_annotation,
+            notes_cmd::update_annotation,
+            notes_cmd::delete_annotation,
+            notes_cmd::create_passage_link,
+            notes_cmd::delete_passage_link,
         ])
         .run(tauri::generate_context!())
         .expect("error while running Sift QDA");

@@ -111,3 +111,30 @@ CREATE TABLE IF NOT EXISTS settings (
     key   TEXT PRIMARY KEY,
     value TEXT NOT NULL
 );
+
+-- Comments attached to a stretch of a source.
+CREATE TABLE IF NOT EXISTS annotations (
+    id          INTEGER PRIMARY KEY,
+    guid        TEXT NOT NULL UNIQUE,
+    source_id   INTEGER NOT NULL REFERENCES sources(id) ON DELETE CASCADE,
+    start_index INTEGER NOT NULL,
+    end_index   INTEGER NOT NULL CHECK (end_index > start_index),
+    body        TEXT NOT NULL DEFAULT '',
+    created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_annotations_source ON annotations(source_id);
+
+-- "See also" links from one passage to another, in the same source or another.
+CREATE TABLE IF NOT EXISTS passage_links (
+    id          INTEGER PRIMARY KEY,
+    guid        TEXT NOT NULL UNIQUE,
+    from_source INTEGER NOT NULL REFERENCES sources(id) ON DELETE CASCADE,
+    from_start  INTEGER NOT NULL,
+    from_end    INTEGER NOT NULL,
+    to_source   INTEGER NOT NULL REFERENCES sources(id) ON DELETE CASCADE,
+    to_start    INTEGER NOT NULL,
+    to_end      INTEGER NOT NULL,
+    created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_links_from ON passage_links(from_source);
+CREATE INDEX IF NOT EXISTS idx_links_to ON passage_links(to_source);

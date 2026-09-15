@@ -188,6 +188,8 @@ export interface QueryResult {
   truncated: boolean;
 }
 
+export type { Annotation, PassageLink, SourceNotes } from "./noteTypes";
+
 export interface ImportOutcome {
   path: string;
   name: string;

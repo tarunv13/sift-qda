@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 
+import { useNotes } from "../../lib/notesStore";
 import { useProject } from "../../state/ProjectContext";
 import { CasesTable } from "./CasesTable";
 import { MemoPanel } from "./MemoPanel";
 import { NodeReferences } from "./NodeReferences";
+import { NotesPanel } from "./NotesPanel";
 import { SearchPanel } from "./SearchPanel";
 
 const TABS = [
   { id: "coded", label: "Coded" },
+  { id: "notes", label: "Notes" },
   { id: "search", label: "Search" },
   { id: "memos", label: "Memos" },
   { id: "cases", label: "Cases" },
@@ -16,6 +19,7 @@ type TabId = (typeof TABS)[number]["id"];
 
 export function RightPanel() {
   const { nodeId } = useProject();
+  const { compose, linkFrom } = useNotes();
   const [tab, setTab] = useState<TabId>("coded");
   const direction = useRef(1);
   const current = TABS.findIndex((t) => t.id === tab);
@@ -32,6 +36,12 @@ export function RightPanel() {
     if (nodeId !== null) go("coded");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodeId]);
+
+  // Starting an annotation or a link from a selection opens the Notes tab to finish it.
+  useEffect(() => {
+    if (compose || linkFrom) go("notes");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [compose, linkFrom]);
 
   return (
     <aside className="flex min-h-0 flex-col border-l border-line bg-panel/40">
@@ -61,6 +71,7 @@ export function RightPanel() {
         className={`min-h-0 flex-1 overflow-y-auto ${direction.current > 0 ? "animate-from-right" : "animate-from-left"}`}
       >
         {tab === "coded" ? <NodeReferences /> : null}
+        {tab === "notes" ? <NotesPanel /> : null}
         {tab === "search" ? <SearchPanel /> : null}
         {tab === "memos" ? <MemoPanel /> : null}
         {tab === "cases" ? <CasesTable /> : null}
