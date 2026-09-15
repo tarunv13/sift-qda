@@ -44,7 +44,7 @@ export function SourceList() {
   }
 
   return (
-    <section>
+    <section data-tour="sources">
       <SectionHeader
         title="Sources"
         count={sources.length}

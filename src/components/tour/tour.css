@@ -1,0 +1,68 @@
+/* Guided tour: spotlight, card and the coding demo. */
+.tour-spotlight {
+  box-shadow:
+    0 0 0 9999px rgb(12 11 9 / 0.58),
+    0 0 0 2px color-mix(in srgb, var(--color-accent) 75%, transparent);
+  pointer-events: none;
+}
+.tour-spotlight[data-empty] {
+  box-shadow: 0 0 0 9999px rgb(12 11 9 / 0.58);
+}
+/* A dark interface needs a deeper dim for the spotlit feature to stand out. */
+:root[data-theme="dark"] .tour-spotlight {
+  box-shadow:
+    0 0 0 9999px rgb(0 0 0 / 0.72),
+    0 0 0 2px color-mix(in srgb, var(--color-accent) 85%, transparent);
+}
+:root[data-theme="dark"] .tour-spotlight[data-empty] {
+  box-shadow: 0 0 0 9999px rgb(0 0 0 / 0.72);
+}
+/* Glide between targets only after the first placement, so the tour never sweeps in from a corner. */
+.tour-spotlight[data-settled] {
+  transition:
+    transform 320ms var(--ease-in-out),
+    width 320ms var(--ease-in-out),
+    height 320ms var(--ease-in-out);
+}
+.tour-card[data-settled] {
+  transition: transform 320ms var(--ease-in-out);
+}
+
+.demo-sweep {
+  background: color-mix(in srgb, #e2a336 30%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, #e2a336 80%, transparent);
+  transform-origin: left center;
+  animation: demo-sweep 4.2s var(--ease-in-out) infinite;
+}
+.demo-menu {
+  transform-origin: top left;
+  animation: demo-menu 4.2s var(--ease-out-expo) infinite;
+}
+.demo-check {
+  animation: demo-check 4.2s var(--ease-out-expo) infinite;
+}
+
+@keyframes demo-sweep {
+  0%, 8% { transform: scaleX(0); opacity: 1; }
+  30%, 86% { transform: scaleX(1); opacity: 1; }
+  96%, 100% { transform: scaleX(1); opacity: 0; }
+}
+@keyframes demo-menu {
+  0%, 34% { opacity: 0; transform: translateY(-4px) scale(0.96); }
+  44%, 86% { opacity: 1; transform: none; }
+  96%, 100% { opacity: 0; transform: none; }
+}
+@keyframes demo-check {
+  0%, 56% { opacity: 0; transform: scale(0.95); }
+  64%, 86% { opacity: 1; transform: none; }
+  96%, 100% { opacity: 0; transform: none; }
+}
+
+/* Reduced motion: show the finished state instead of the loop. */
+@media (prefers-reduced-motion: reduce) {
+  .demo-sweep,
+  .demo-menu,
+  .demo-check {
+    animation: none;
+  }
+}

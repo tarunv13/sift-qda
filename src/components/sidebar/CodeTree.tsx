@@ -86,7 +86,7 @@ export function CodeTree() {
   }
 
   return (
-    <section>
+    <section data-tour="codes">
       <SectionHeader
         title="Codes"
         count={nodes.length}

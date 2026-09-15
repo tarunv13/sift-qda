@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { api } from "../../lib/api";
 import type { EmbeddingStatus, IndexStatus } from "../../lib/types";
 import { useProject } from "../../state/ProjectContext";
+import { TourButton } from "../tour/TourButton";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
+import { ThemeToggle } from "../ui/ThemeToggle";
 import { AiSettings } from "./AiSettings";
 
 /** Shows the local semantic index as it fills, and gives access to its settings. */
@@ -43,9 +45,11 @@ export function StatusBar() {
 
   return (
     <footer className="col-span-3 flex h-8 items-center gap-2.5 border-t border-line bg-panel/70 px-3 text-xs text-muted">
-      <span className={`h-2 w-2 rounded-full transition-colors duration-300 ${dot}`} />
-      <span key={label} className="animate-rise" title={event?.message ?? undefined}>
-        {label}
+      <span data-tour="index" className="flex items-center gap-2.5">
+        <span className={`h-2 w-2 rounded-full transition-colors duration-300 ${dot}`} />
+        <span key={label} className="animate-rise" title={event?.message ?? undefined}>
+          {label}
+        </span>
       </span>
       {indexing ? (
         <span className="h-1 w-28 overflow-hidden rounded-full bg-line">
@@ -55,7 +59,11 @@ export function StatusBar() {
           />
         </span>
       ) : null}
-      <div className="relative ml-auto">
+      <div className="relative ml-auto flex items-center gap-1.5">
+        <div data-tour="prefs" className="flex items-center gap-1.5">
+          <ThemeToggle />
+          <TourButton tour="workspace" />
+        </div>
         <Button size="sm" variant="ghost" onClick={() => setSettingsOpen((v) => !v)} aria-expanded={settingsOpen}>
           <Icon name="sliders" size={13} />
           Local AI

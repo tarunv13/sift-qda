@@ -4,12 +4,16 @@ import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { api } from "../../lib/api";
 import type { Project } from "../../lib/types";
 import { useProject } from "../../state/ProjectContext";
+import { TourButton } from "../tour/TourButton";
+import { useFirstRunTour } from "../tour/TourContext";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
 import { PanelEmpty } from "../ui/PanelEmpty";
+import { ThemeToggle } from "../ui/ThemeToggle";
 
 export function ProjectHome() {
   const { openProject, run, notify } = useProject();
+  useFirstRunTour("home");
   const [projects, setProjects] = useState<Project[] | null>(null);
   const [name, setName] = useState("");
   const [importing, setImporting] = useState(false);
@@ -46,6 +50,10 @@ export function ProjectHome() {
 
   return (
     <main className="h-full overflow-y-auto">
+      <div data-tour="home-prefs" className="animate-fade fixed top-3 right-4 z-10 flex items-center gap-1.5">
+        <ThemeToggle />
+        <TourButton tour="home" />
+      </div>
       <div className="mx-auto flex max-w-2xl flex-col gap-12 px-8 py-20">
         <header className="animate-rise">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">Sift QDA</p>
@@ -55,7 +63,7 @@ export function ProjectHome() {
           </p>
         </header>
 
-        <form onSubmit={create} className="animate-rise flex gap-2 [animation-delay:70ms]">
+        <form onSubmit={create} data-tour="home-create" className="animate-rise flex gap-2 [animation-delay:70ms]">
           <input
             autoFocus
             value={name}
@@ -69,10 +77,10 @@ export function ProjectHome() {
           </Button>
         </form>
 
-        <section className="animate-rise [animation-delay:140ms]">
+        <section data-tour="home-projects" className="animate-rise [animation-delay:140ms]">
           <div className="mb-3 flex items-center">
             <h2 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">Projects</h2>
-            <Button variant="ghost" size="sm" className="ml-auto" onClick={importQdpx} disabled={importing}>
+            <Button variant="ghost" size="sm" className="ml-auto" onClick={importQdpx} disabled={importing} data-tour="home-import">
               <Icon name="upload" size={14} />
               {importing ? "Importing…" : "Open an NVivo / REFI-QDA export"}
             </Button>

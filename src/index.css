@@ -4,19 +4,23 @@
   --font-ui: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
   --font-reading: "Iowan Old Style", "Charter", "Cambria", Georgia, serif;
 
-  --color-paper: #f7f3ea;
-  --color-panel: #efe9dc;
-  --color-surface: #fffdf8;
-  --color-line: #e0d8c6;
-  --color-ink: #211f1a;
-  --color-muted: #797262;
+  /* Light ("white") theme is the default; dark overrides the same tokens below. */
+  --color-paper: #f8f7f4;
+  --color-panel: #f1efea;
+  --color-surface: #ffffff;
+  --color-line: #e3dfd6;
+  --color-ink: #1f1d19;
+  --color-muted: #6c665b;
   --color-accent: #2f6153;
-  --color-accent-soft: #dce8e2;
+  --color-accent-soft: #e0ebe6;
   --color-danger: #b2442f;
-  --color-warn: #c98a1b;
+  --color-warn: #b87a12;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --animate-fade: fade 200ms var(--ease-out-expo) both;
 
   --animate-rise: rise 380ms var(--ease-out-expo) both;
   --animate-pop: pop 260ms var(--ease-out-expo) both;
@@ -28,6 +32,7 @@
   --animate-nudge: nudge 1.6s ease-in-out infinite;
   --animate-breathe: breathe 1.4s ease-in-out infinite;
 
+  @keyframes fade { from { opacity: 0; } }
   @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
   @keyframes pop { from { opacity: 0; transform: scale(0.96) translateY(4px); } }
   @keyframes drop { from { opacity: 0; transform: translateY(-10px); } }
@@ -40,8 +45,27 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  /* Chosen in the app (data-theme), or following Windows before the app has started. */
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-paper: #171612;
+    --color-panel: #1e1c17;
+    --color-surface: #25231d;
+    --color-line: #34312a;
+    --color-ink: #ece6d8;
+    --color-muted: #9c9483;
+    --color-accent: #7fb8a4;
+    --color-accent-soft: #24342e;
+    --color-danger: #e07a62;
+    --color-warn: #e0a84a;
+  }
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
+      color-scheme: dark;
       --color-paper: #171612;
       --color-panel: #1e1c17;
       --color-surface: #25231d;
