@@ -28,6 +28,9 @@ All notable changes to this project are documented here. The format follows
   overlap), or at another (either), but not at another, or near another within a number of
   characters. Include sub-codes, limit to cases with an attribute value, and save the results as a new
   code in one step.
+- **Explore → charts:** the code hierarchy as a treemap or sunburst sized by coded passages
+  (including sub-codes), where clicking a code opens its passages; and one code across every source
+  as a bar chart. Both have a table view.
 
 ### Changed
 
