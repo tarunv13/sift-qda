@@ -6,6 +6,12 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- **How to cite:** the README gives APA and BibTeX citations and a sample methods sentence, and
+  `CITATION.cff` names the author with an ORCID iD so GitHub's "Cite this repository" button credits
+  the work correctly.
+
 ## [0.2.0] - 2026-09-15
 
 ### Added

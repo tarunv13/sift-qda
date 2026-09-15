@@ -1,18 +1,27 @@
 cff-version: 1.2.0
-message: "If you use Sift QDA in your research, please cite it as below."
+message: "If you use Sift QDA in your research, please cite it as below, including the version you used."
 title: "Sift QDA: local-first qualitative data analysis"
+abstract: >-
+  Sift QDA is free, open-source software for qualitative data analysis that keeps research data on
+  the researcher's own computer. It supports coding of documents, PDFs, survey data and transcribed
+  audio, matrix coding and coding queries, local semantic search and a local AI assistant, and
+  exchange with other CAQDAS tools through the REFI-QDA standard.
 type: software
 authors:
-  - name: "Sift QDA contributors"
+  - given-names: "Tarun Kumar"
+    family-names: "Verma"
+    orcid: "https://orcid.org/0009-0009-4130-2455"
 version: 0.2.0
 date-released: 2026-09-15
 license:
   - MIT
   - Apache-2.0
 repository-code: "https://github.com/tarunv13/sift-qda"
+url: "https://github.com/tarunv13/sift-qda"
 keywords:
   - qualitative data analysis
   - CAQDAS
   - thematic analysis
   - REFI-QDA
+  - research data privacy
   - open source
