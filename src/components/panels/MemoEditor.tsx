@@ -11,14 +11,16 @@ interface Props {
   memo: Memo;
   sourceName?: string;
   nodeName?: string;
+  caseName?: string;
   onBack: () => void;
   onSaved: (memo: Memo) => void;
   onDeleted: () => void;
 }
 
 /** Autosaving memo editor (saves 600 ms after typing stops). */
-export function MemoEditor({ memo, sourceName, nodeName, onBack, onSaved, onDeleted }: Props) {
+export function MemoEditor({ memo, sourceName, nodeName, caseName, onBack, onSaved, onDeleted }: Props) {
   const { run } = useProject();
+  const linkedTo = caseName ? `the case “${caseName}”` : nodeName ? `the code “${nodeName}”` : sourceName;
   const [title, setTitle] = useState(memo.title);
   const [body, setBody] = useState(memo.body);
   const [state, setState] = useState<"saved" | "saving" | "idle">("idle");
@@ -68,9 +70,7 @@ export function MemoEditor({ memo, sourceName, nodeName, onBack, onSaved, onDele
         aria-label="Memo title"
         className="rounded-md bg-transparent px-1 font-reading text-xl text-ink outline-none focus:ring-2 focus:ring-accent/30"
       />
-      {sourceName || nodeName ? (
-        <p className="mt-1 px-1 text-xs text-muted">Linked to {sourceName ?? `the code “${nodeName}”`}</p>
-      ) : null}
+      {linkedTo ? <p className="mt-1 px-1 text-xs text-muted">Linked to {linkedTo}</p> : null}
       <textarea
         autoFocus
         value={body}

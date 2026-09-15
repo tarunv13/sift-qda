@@ -1,8 +1,10 @@
 pub mod annotations;
+pub mod case_edit;
 pub mod cases;
 pub mod code_ops;
 pub mod links;
 pub mod memos;
+pub mod migrate;
 pub mod nodes;
 pub mod projects;
 pub mod references;
@@ -40,6 +42,7 @@ pub fn open(path: &Path) -> AppResult<Connection> {
     conn.pragma_update(None, "journal_mode", "WAL")?;
     conn.pragma_update(None, "busy_timeout", 5000)?;
     conn.execute_batch(SCHEMA)?;
+    migrate::run(&conn)?;
     Ok(conn)
 }
 

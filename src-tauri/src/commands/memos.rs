@@ -17,9 +17,11 @@ pub fn create_memo(
     body: Option<String>,
     source_id: Option<i64>,
     node_id: Option<i64>,
+    case_id: Option<i64>,
 ) -> AppResult<Memo> {
-    memos::create(
-        &state.conn(),
+    let conn = state.conn();
+    let memo = memos::create(
+        &conn,
         &NewMemo {
             project_id,
             guid: None,
@@ -28,7 +30,12 @@ pub fn create_memo(
             title: &title,
             body: body.as_deref().unwrap_or(""),
         },
-    )
+    )?;
+    if case_id.is_none() {
+        return Ok(memo);
+    }
+    memos::link_case(&conn, memo.id, case_id)?;
+    memos::get(&conn, memo.id)
 }
 
 #[tauri::command]

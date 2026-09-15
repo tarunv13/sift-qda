@@ -9,6 +9,7 @@ import type { CodingReference, Source } from "../../lib/types";
 import { useProject } from "../../state/ProjectContext";
 import { AttachCodeMenu } from "./AttachCodeMenu";
 import { buildDoc } from "./buildDoc";
+import { CodingStripes } from "./CodingStripes";
 import { CodeMark } from "./CodeMark";
 import { ALLOW_CHANGE, ReadOnlyText } from "./ReadOnlyText";
 
@@ -17,13 +18,16 @@ interface Props {
   references: CodingReference[];
   onCoded: () => void;
   onPage: (page: number) => void;
+  /** Show a named stripe beside the text for each coded passage. */
+  stripes: boolean;
 }
 
 /** The coding surface: immutable source text with stacked CodeMark highlights. */
-export function SourceViewer({ source, references, onCoded, onPage }: Props) {
+export function SourceViewer({ source, references, onCoded, onPage, stripes }: Props) {
   const { focus, selectNode } = useProject();
   const index = useMemo(() => indexParagraphs(source.content), [source.content]);
   const scroller = useRef<HTMLDivElement>(null);
+  const article = useRef<HTMLElement>(null);
   // Reference ids currently rendered as marks; lets us skip rebuilding after our own edits.
   const applied = useRef(new Set(references.map((r) => r.id)));
 
@@ -73,9 +77,10 @@ export function SourceViewer({ source, references, onCoded, onPage }: Props) {
   }
 
   return (
-    <div ref={scroller} onClick={openCodeUnderCursor} className="relative min-w-0 flex-1 overflow-y-auto">
-      <article className="animate-rise mx-auto max-w-[70ch] px-10 pt-10 pb-32">
+    <div ref={scroller} onClick={openCodeUnderCursor} className="relative min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
+      <article ref={article} className="animate-rise relative mx-auto max-w-[70ch] px-10 pt-10 pb-32">
         <EditorContent editor={editor} />
+        {editor && stripes ? <CodingStripes editor={editor} references={references} index={index} article={article} /> : null}
       </article>
       {editor ? (
         <AttachCodeMenu

@@ -99,7 +99,8 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 | Coding queries | Passages coded at one code and also, or, but not, or near another; include sub-codes, filter by a case attribute, and save the results as a new code |
 | Charts | The codebook as a treemap or sunburst sized by coded passages (click a code to read it), and one code across every source as bars, each with a table view |
 | Annotations and links | Comment on any passage, and link passages to each other within or across sources ("see also"); the Notes tab lists both and opens them in place |
-| Memos and cases | Autosaving memos linked to sources, and a case/attribute table |
+| Coding stripes | A named bar beside the text for every coded passage, side by side where codes overlap; click one to open its code |
+| Memos and cases | Autosaving memos linked to a source, code or case. An editable case table: add cases and attributes, edit values in place, link cases to sources, or create a case per source |
 | Excel export | Coded extracts, codebook, codes × documents, documents, memos |
 | REFI-QDA | `.qdpx` import and export: codes, sources, codings, variables, cases, notes |
 | Guided tour | A first-run walkthrough spotlights each part of the app and what it does; replay it from **Tour** |

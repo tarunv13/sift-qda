@@ -12,10 +12,12 @@ export function MemoPanel() {
   const { project, sourceId, sources, nodes, run } = useProject();
   const [memos, setMemos] = useState<Memo[]>([]);
   const [openId, setOpenId] = useState<number | null>(null);
+  const [caseNames, setCaseNames] = useState(new Map<number, string>());
 
   useEffect(() => {
     if (!project) return;
     void run(api.listMemos(project.id)).then((list) => list && setMemos(list));
+    void run(api.getCaseTable(project.id)).then((t) => t && setCaseNames(new Map(t.cases.map((c) => [c.id, c.name]))));
   }, [project, run]);
 
   async function create() {
@@ -35,6 +37,7 @@ export function MemoPanel() {
         memo={open}
         sourceName={sources.find((s) => s.id === open.sourceId)?.name}
         nodeName={nodes.find((n) => n.id === open.nodeId)?.name}
+        caseName={caseNames.get(open.caseId ?? -1)}
         onBack={() => setOpenId(null)}
         onSaved={(saved) => setMemos((all) => all.map((m) => (m.id === saved.id ? saved : m)))}
         onDeleted={() => {

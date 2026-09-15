@@ -12,6 +12,8 @@ mod tests;
 #[cfg(test)]
 mod tests_analysis;
 #[cfg(test)]
+mod tests_cases;
+#[cfg(test)]
 mod tests_code_ops;
 #[cfg(test)]
 mod tests_import;
@@ -76,6 +78,15 @@ pub fn run() {
             memos::update_memo,
             memos::delete_memo,
             cases::get_case_table,
+            cases::create_case,
+            cases::rename_case,
+            cases::link_case_source,
+            cases::delete_case,
+            cases::create_attribute,
+            cases::rename_attribute,
+            cases::delete_attribute,
+            cases::set_case_value,
+            cases::create_cases_for_sources,
             search::semantic_search,
             search::text_search,
             search::embedding_status,

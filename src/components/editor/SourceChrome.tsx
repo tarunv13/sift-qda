@@ -10,9 +10,11 @@ interface HeaderProps {
   hasPage: boolean;
   showPage: boolean;
   onTogglePage: () => void;
+  showStripes: boolean;
+  onToggleStripes: () => void;
 }
 
-export function SourceHeader({ source, referenceCount, hasPage, showPage, onTogglePage }: HeaderProps) {
+export function SourceHeader({ source, referenceCount, hasPage, showPage, onTogglePage, showStripes, onToggleStripes }: HeaderProps) {
   const words = source.content.trim() ? source.content.trim().split(/\s+/).length : 0;
   const details = [
     KIND_NAME[source.kind],
@@ -31,6 +33,17 @@ export function SourceHeader({ source, referenceCount, hasPage, showPage, onTogg
         <Icon name="tag" size={12} />
         <span className="tabular-nums">{referenceCount}</span> coded
       </span>
+      <Button
+        size="sm"
+        variant={showStripes ? "secondary" : "ghost"}
+        onClick={onToggleStripes}
+        aria-pressed={showStripes}
+        data-tour="stripes"
+        title="Show a named stripe beside the text for each coded passage"
+      >
+        <Icon name="chart" size={14} />
+        Stripes
+      </Button>
       {hasPage ? (
         <Button size="sm" variant={showPage ? "secondary" : "ghost"} onClick={onTogglePage} aria-pressed={showPage}>
           <Icon name="page" size={14} />

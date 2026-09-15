@@ -40,6 +40,11 @@ All notable changes to this project are documented here. The format follows
   passages, sub-codes and memos without duplicating passages coded at both. Move a single passage to
   a different code. Start a memo on a code.
 - **Undo** for coding, uncoding, moving a passage and moving a code, from the status bar or Ctrl+Z.
+- **Coding stripes:** turn on Stripes above a source to see a named bar beside the text for each
+  coded passage, in separate lanes where codes overlap. Click a stripe to open its code.
+- **Editable cases:** add cases and attributes, rename them, edit values in place, link a case to a
+  source, delete either, or create a case for every source that has none. Memos can be linked to a
+  case from its row.
 
 ### Changed
 
