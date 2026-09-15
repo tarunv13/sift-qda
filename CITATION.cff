@@ -4,7 +4,7 @@ title: "Sift QDA: local-first qualitative data analysis"
 type: software
 authors:
   - name: "Sift QDA contributors"
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-09-15
 license:
   - MIT
