@@ -56,6 +56,13 @@ All notable changes to this project are documented here. The format follows
   imported as a text source linked to the audio, and a player above the text plays from the
   selected passage. Audio files picked in the normal import explain how to transcribe them instead.
 
+### Security
+
+- A gitleaks scan of the full history runs on every push, pull request and weekly, with rules for
+  credentials, home-folder paths and personal email addresses. `.gitignore` now also excludes
+  recordings, transcripts, exports and document formats. SECURITY.md explains where Sift QDA
+  stores research data and how to protect it.
+
 ### Changed
 
 - The light palette is brighter and closer to white.
