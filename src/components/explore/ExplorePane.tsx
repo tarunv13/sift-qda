@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { ChartsPanel } from "./ChartsPanel";
 import { MatrixPanel } from "./MatrixPanel";
 import { QueryPanel } from "./QueryPanel";
 import { WordsPanel } from "./WordsPanel";
@@ -8,6 +9,7 @@ const TABS = [
   { id: "words", label: "Word frequency" },
   { id: "matrix", label: "Matrix coding" },
   { id: "query", label: "Coding query" },
+  { id: "charts", label: "Charts" },
 ] as const;
 type TabId = (typeof TABS)[number]["id"];
 
@@ -47,6 +49,9 @@ export function ExplorePane() {
       </div>
       <div role="tabpanel" hidden={tab !== "query"} className="flex min-h-0 flex-1 flex-col">
         <QueryPanel />
+      </div>
+      <div role="tabpanel" hidden={tab !== "charts"} className="flex min-h-0 flex-1 flex-col">
+        <ChartsPanel />
       </div>
     </main>
   );
