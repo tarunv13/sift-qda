@@ -21,6 +21,12 @@ Export your themes to Excel, or move the whole project to NVivo, ATLAS.ti or MAX
 
 </div>
 
+<p align="center">
+  <img src="docs/screenshot.png" alt="Sift QDA with an interview open: coded passages highlighted in theme colours, the code tree on the left, and every passage coded 'Worry about the future' listed on the right" width="100%">
+  <br>
+  <sub>Coding a fictional interview from the demo study. All data shown is made up.</sub>
+</p>
+
 ---
 
 ## Why Sift QDA
