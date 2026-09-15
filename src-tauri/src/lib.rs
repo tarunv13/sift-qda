@@ -1,4 +1,5 @@
 mod ai;
+mod analysis;
 mod commands;
 mod db;
 mod error;
@@ -8,6 +9,8 @@ mod refi;
 mod state;
 #[cfg(test)]
 mod tests;
+#[cfg(test)]
+mod tests_analysis;
 #[cfg(test)]
 mod tests_import;
 #[cfg(test)]
@@ -19,7 +22,8 @@ use std::sync::Mutex;
 use tauri::Manager;
 
 use commands::{
-    cases, coding, excel as excel_cmd, memos, projects, refi as refi_cmd, search, sources,
+    analysis as analysis_cmd, cases, coding, excel as excel_cmd, memos, projects, refi as refi_cmd,
+    search, sources,
 };
 use state::AppState;
 
@@ -73,6 +77,8 @@ pub fn run() {
             refi_cmd::import_qdpx,
             refi_cmd::export_qdpx,
             excel_cmd::export_excel,
+            analysis_cmd::word_frequency,
+            analysis_cmd::keyword_contexts,
         ])
         .run(tauri::generate_context!())
         .expect("error while running Sift QDA");

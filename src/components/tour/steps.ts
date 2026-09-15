@@ -70,6 +70,12 @@ export const TOURS: Record<TourId, TourStep[]> = {
       body: "Nest codes under broader themes and give them colours. Click any code to gather every passage coded with it.",
     },
     {
+      target: at("explore"),
+      placement: "right",
+      title: "Explore words and patterns",
+      body: "See the most frequent words as a word cloud, bars or a table, for the whole project, one source or one code. Click a word to read every place it appears.",
+    },
+    {
       target: at("tab-coded"),
       placement: "left",
       title: "Coded passages",

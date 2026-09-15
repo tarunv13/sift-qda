@@ -39,6 +39,9 @@ yet, across every transcript.
 Import the spreadsheet so demographic columns become attributes. Code the free-text answers, then
 export and pivot the *Coded extracts* sheet in Excel by segment.
 
+Before building the codebook, open **Explore → word frequency** to see which words keep coming up,
+then click a word to read every answer that uses it.
+
 ## Public policy and consultations
 
 **Material:** hundreds of consultation responses as PDF or Word.

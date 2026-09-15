@@ -34,6 +34,9 @@ pdf-extract = "0.12.0"
 # REFI-QDA (.qdpx = zip of XML + plain text)
 zip = "8.6.0"
 roxmltree = "0.21"
+# Text analysis (word boundaries follow Unicode rules, so Hindi and other scripts count correctly)
+unicode-segmentation = "1.13.3"
+stop-words = "0.10.0"
 # Local embeddings through Ollama on localhost (plain HTTP, so no TLS stack)
 ureq = { version = "3.4", default-features = false, features = ["json"] }
 

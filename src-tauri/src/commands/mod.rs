@@ -1,5 +1,6 @@
 //! Tauri command handlers: thin wrappers that lock the database and call `db`, `import`, `ai` or `refi`.
 
+pub mod analysis;
 pub mod cases;
 pub mod coding;
 pub mod excel;

@@ -24,6 +24,9 @@ interface ProjectState {
   nodes: CodeNode[];
   sourceId: number | null;
   selectSource: (id: number | null) => void;
+  /** The middle column: reading a source, or exploring patterns across the project. */
+  view: "read" | "explore";
+  setView: (view: "read" | "explore") => void;
   nodeId: number | null;
   selectNode: (id: number | null) => void;
   focus: Focus | null;
@@ -50,6 +53,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
   const [sourceId, setSourceId] = useState<number | null>(null);
   const [nodeId, setNodeId] = useState<number | null>(null);
   const [focus, setFocus] = useState<Focus | null>(null);
+  const [view, setView] = useState<"read" | "explore">("read");
   const [referencesVersion, setReferencesVersion] = useState(0);
   const [notices, setNotices] = useState<Notice[]>([]);
 
@@ -90,6 +94,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
     setSourceId(null);
     setNodeId(null);
     setFocus(null);
+    setView("read");
     setSources([]);
     setNodes([]);
     void refresh();
@@ -102,7 +107,14 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
 
   const reveal = useCallback((id: number, start: number, end: number) => {
     setSourceId(id);
+    setView("read");
     setFocus({ sourceId: id, start, end, nonce: nextNonce++ });
+  }, []);
+
+  // Opening a source always shows the reader.
+  const selectSource = useCallback((id: number | null) => {
+    setSourceId(id);
+    if (id !== null) setView("read");
   }, []);
 
   const value = useMemo<ProjectState>(
@@ -112,7 +124,9 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
       sources,
       nodes,
       sourceId,
-      selectSource: setSourceId,
+      selectSource,
+      view,
+      setView,
       nodeId,
       selectNode: setNodeId,
       focus,
@@ -125,7 +139,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
       dismiss,
       run,
     }),
-    [project, sources, nodes, sourceId, nodeId, focus, reveal, refresh, referencesVersion, referencesChanged, notices, notify, dismiss, run],
+    [project, sources, nodes, sourceId, selectSource, view, nodeId, focus, reveal, refresh, referencesVersion, referencesChanged, notices, notify, dismiss, run],
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

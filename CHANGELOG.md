@@ -14,6 +14,11 @@ All notable changes to this project are documented here. The format follows
   the **Tour** button. Arrow keys move between steps and Esc closes it.
 - Light, dark and match-Windows themes, switchable from the status bar and the projects screen. The
   choice is remembered and the window title bar follows it.
+- **Explore → word frequency:** a word cloud, bar chart or table of the most frequent words for the
+  whole project, one source, or the passages coded at one code. Common English and Hindi words,
+  interview fillers and speaker labels such as "P01:" can be left out, and individual words can be
+  hidden. Clicking a word lists every occurrence in context; clicking an occurrence opens the source
+  at that spot. Charts use Apache ECharts and d3-cloud and follow the light and dark themes.
 
 ### Changed
 

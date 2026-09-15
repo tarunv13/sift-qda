@@ -1,6 +1,7 @@
 // Typed wrappers around the Rust commands. The frontend never parses files or touches SQLite.
 import { invoke } from "@tauri-apps/api/core";
 import type {
+  AnalysisScope,
   CaseTable,
   CodeNode,
   CodingReference,
@@ -8,12 +9,15 @@ import type {
   ImportOutcome,
   ImportSummary,
   IndexStatus,
+  KeywordContext,
   Memo,
   Project,
   QuotedReference,
   SearchHit,
   Source,
   SourceSummary,
+  WordFrequency,
+  WordOptions,
 } from "./types";
 
 export const api = {
@@ -66,6 +70,12 @@ export const api = {
   getEmbeddingConfig: () => invoke<EmbeddingConfig>("get_embedding_config"),
   setEmbeddingConfig: (config: EmbeddingConfig) => invoke<void>("set_embedding_config", { config }),
   reindexEmbeddings: () => invoke<void>("reindex_embeddings"),
+
+  // Explore
+  wordFrequency: (projectId: number, scope: AnalysisScope, options: WordOptions) =>
+    invoke<WordFrequency>("word_frequency", { projectId, scope, options }),
+  keywordContexts: (projectId: number, scope: AnalysisScope, word: string, skipSpeakers: boolean) =>
+    invoke<KeywordContext[]>("keyword_contexts", { projectId, scope, word, skipSpeakers }),
 
   // REFI-QDA
   importQdpx: (path: string) => invoke<ImportSummary>("import_qdpx", { path }),
