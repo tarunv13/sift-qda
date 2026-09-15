@@ -24,7 +24,13 @@ Export your themes to Excel, or move the whole project to NVivo, ATLAS.ti or MAX
 <p align="center">
   <img src="docs/screenshot.png" alt="Sift QDA with an interview open: coded passages highlighted in theme colours, the code tree on the left, and every passage coded 'Worry about the future' listed on the right" width="100%">
   <br>
-  <sub>Coding a fictional interview from the demo study. All data shown is made up.</sub>
+  <sub>Dark theme: coding a fictional interview from the demo study. All data shown is made up.</sub>
+</p>
+
+<p align="center">
+  <img src="docs/screenshot-light.png" alt="Sift QDA in the light theme: an interview with coded passages, and a search by meaning for 'wanting to stay on their land' listing related passages from four sources" width="100%">
+  <br>
+  <sub>Light theme: searching by meaning across the demo study. Switch between light, dark or match Windows from the status bar.</sub>
 </p>
 
 ---
