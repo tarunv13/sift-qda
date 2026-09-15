@@ -17,6 +17,8 @@ pub enum AppError {
     Refi(String),
     #[error("embedding: {0}")]
     Embed(String),
+    #[error("local AI: {0}")]
+    Ai(String),
     #[error("{0}")]
     Invalid(String),
 }

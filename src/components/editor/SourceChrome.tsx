@@ -1,4 +1,5 @@
 import type { Source } from "../../lib/types";
+import { SummariseButton } from "../assist/SummariseButton";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
 
@@ -33,6 +34,7 @@ export function SourceHeader({ source, referenceCount, hasPage, showPage, onTogg
         <Icon name="tag" size={12} />
         <span className="tabular-nums">{referenceCount}</span> coded
       </span>
+      <SummariseButton target={{ kind: "source", id: source.id }} label="Summarise this source with local AI" compact />
       <Button
         size="sm"
         variant={showStripes ? "secondary" : "ghost"}

@@ -3,6 +3,7 @@ import { ask } from "@tauri-apps/plugin-dialog";
 import { api } from "../../lib/api";
 import type { CaseTable } from "../../lib/types";
 import { useProject } from "../../state/ProjectContext";
+import { SummariseButton } from "../assist/SummariseButton";
 import { Icon } from "../ui/Icon";
 import { EditableCell } from "./EditableCell";
 
@@ -75,6 +76,7 @@ export function CaseRow({ row, attributes, act }: Props) {
         </td>
       ))}
       <td className="px-1 py-0.5 whitespace-nowrap">
+        <SummariseButton target={{ kind: "case", id: row.id }} label={`Summarise ${row.name} with local AI`} compact />
         <button type="button" onClick={newMemo} aria-label={`New memo on ${row.name}`} title="New memo on this case" className={ICON_BUTTON}>
           <Icon name="note" size={12} />
         </button>

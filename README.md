@@ -94,6 +94,7 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 | Plain text | `.txt` transcripts |
 | Semantic search | Local `nomic-embed-text` embeddings with int8-quantised `sqlite-vec` search |
 | Exact search | Phrase search that works with no model installed |
+| Local AI assistant | Summarise a source, a code's passages or a case into a linked memo, and get sub-code suggestions you can add in one click. Runs a local chat model (`llama3.2:3b` by default) through Ollama; nothing leaves the computer |
 | Word frequency | Word cloud, bar chart or table of the most frequent words in the whole project, one source or one code. Leaves out common English or Hindi words and speaker labels; click a word to read every occurrence in context |
 | Matrix coding | Heatmap or table of how many passages each code, or each theme with its sub-codes, has in each source, case or attribute value. Click a cell to read its passages; export to Excel with totals |
 | Coding queries | Passages coded at one code and also, or, but not, or near another; include sub-codes, filter by a case attribute, and save the results as a new code |
@@ -134,6 +135,7 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 ```powershell
 winget install Ollama.Ollama
 ollama pull nomic-embed-text
+ollama pull llama3.2:3b     # optional: summaries and sub-code suggestions
 ```
 
 Keep Ollama running. Sift QDA indexes imported documents in the background and shows progress in
@@ -202,7 +204,7 @@ Ideas, not promises. Upvote or discuss them in
 - [ ] Coding regions of PDFs and images
 - [ ] Code co-occurrence matrix and charts
 - [ ] Inter-coder agreement (Cohen's kappa) for team projects
-- [ ] Code suggestions from a local language model
+- [x] Code suggestions from a local language model
 - [ ] Multilingual embedding models
 - [ ] Signed installers
 

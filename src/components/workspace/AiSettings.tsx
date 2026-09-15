@@ -45,9 +45,10 @@ export function AiSettings({ message, onClose }: { message: string | null; onClo
         </Button>
       </div>
       <p className="mb-3 leading-relaxed text-muted">
-        Semantic search runs on a local embedding model through{" "}
-        <span className="font-medium text-ink">Ollama</span>. Install it, then run{" "}
-        <code className="rounded bg-panel px-1 py-0.5 text-xs select-text">ollama pull nomic-embed-text</code>.
+        Everything runs on this computer through <span className="font-medium text-ink">Ollama</span>. Semantic search
+        needs <code className="rounded bg-panel px-1 py-0.5 text-xs select-text">ollama pull nomic-embed-text</code>;
+        summaries and sub-code suggestions need a chat model, such as{" "}
+        <code className="rounded bg-panel px-1 py-0.5 text-xs select-text">ollama pull llama3.2:3b</code>.
       </p>
       {message ? <p className="animate-rise mb-3 rounded-lg bg-warn/10 p-2.5 text-xs leading-relaxed text-ink">{message}</p> : null}
       {config ? (
@@ -59,6 +60,10 @@ export function AiSettings({ message, onClose }: { message: string | null; onClo
           <label className="block">
             <span className="mb-1 block text-xs text-muted">Embedding model (768 dimensions)</span>
             <input className={field} value={config.model} onChange={(e) => setConfig({ ...config, model: e.target.value })} />
+          </label>
+          <label className="block">
+            <span className="mb-1 block text-xs text-muted">Chat model (summaries and suggestions)</span>
+            <input className={field} value={config.chatModel} onChange={(e) => setConfig({ ...config, chatModel: e.target.value })} />
           </label>
         </div>
       ) : null}

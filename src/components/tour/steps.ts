@@ -127,7 +127,7 @@ export const TOURS: Record<TourId, TourStep[]> = {
       target: at("index"),
       placement: "top",
       title: "Search by meaning, offline",
-      body: "Meaning search runs on your computer with Ollama. This shows indexing progress, and Local AI lets you change the model or rebuild the index.",
+      body: "Meaning search runs on your computer with Ollama. This shows indexing progress, and Local AI lets you change the models or rebuild the index. The same local setup drafts summaries of a source, code or case as memos (the sparkle buttons) and suggests sub-codes from a code's passages.",
     },
     {
       target: at("prefs"),

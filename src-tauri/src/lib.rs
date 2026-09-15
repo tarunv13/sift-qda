@@ -32,8 +32,9 @@ use std::sync::Mutex;
 use tauri::Manager;
 
 use commands::{
-    analysis as analysis_cmd, cases, code_ops, coding, excel as excel_cmd, matrix as matrix_cmd,
-    memos, notes as notes_cmd, projects, query as query_cmd, refi as refi_cmd, search, sources,
+    analysis as analysis_cmd, assist, cases, code_ops, coding, excel as excel_cmd,
+    matrix as matrix_cmd, memos, notes as notes_cmd, projects, query as query_cmd,
+    refi as refi_cmd, search, sources,
 };
 use state::AppState;
 
@@ -87,6 +88,8 @@ pub fn run() {
             cases::delete_attribute,
             cases::set_case_value,
             cases::create_cases_for_sources,
+            assist::ai_summarise,
+            assist::ai_suggest_subcodes,
             search::semantic_search,
             search::text_search,
             search::embedding_status,

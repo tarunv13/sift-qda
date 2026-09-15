@@ -25,6 +25,7 @@ import type {
   WordFrequency,
   WordOptions,
 } from "./types";
+import type { AssistTarget, CodeSuggestion } from "./assistTypes";
 
 export const api = {
   // Projects
@@ -45,8 +46,8 @@ export const api = {
 
   // Codes and coding
   listNodes: (projectId: number) => invoke<CodeNode[]>("list_nodes", { projectId }),
-  createNode: (projectId: number, name: string, color: string, parentId: number | null) =>
-    invoke<CodeNode>("create_node", { projectId, name, color, parentId }),
+  createNode: (projectId: number, name: string, color: string, parentId: number | null, description?: string) =>
+    invoke<CodeNode>("create_node", { projectId, name, color, parentId, description }),
   updateNode: (node: Pick<CodeNode, "id" | "name" | "color" | "description" | "parentId">) =>
     invoke<CodeNode>("update_node", node),
   deleteNode: (id: number) => invoke<void>("delete_node", { id }),
@@ -78,6 +79,10 @@ export const api = {
   deleteAttribute: (id: number) => invoke<void>("delete_attribute", { id }),
   setCaseValue: (caseId: number, attributeId: number, value: string) => invoke<void>("set_case_value", { caseId, attributeId, value }),
   createCasesForSources: (projectId: number) => invoke<number>("create_cases_for_sources", { projectId }),
+
+  // Local AI assistant (runs through Ollama on this computer)
+  aiSummarise: (target: AssistTarget) => invoke<Memo>("ai_summarise", { target }),
+  aiSuggestSubcodes: (nodeId: number) => invoke<CodeSuggestion[]>("ai_suggest_subcodes", { nodeId }),
 
   // Search and local AI
   semanticSearch: (projectId: number, query: string, limit = 20) =>
