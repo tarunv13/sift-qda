@@ -103,6 +103,39 @@ export interface EmbeddingStatus {
   message: string | null;
 }
 
+/** Which text an Explore analysis reads. */
+export type AnalysisScope = { kind: "project" } | { kind: "source"; id: number } | { kind: "code"; id: number };
+
+export interface WordOptions {
+  minLength: number;
+  language: "en" | "hi" | "en+hi" | "none";
+  extraStopWords: string[];
+  skipSpeakers: boolean;
+  limit: number;
+}
+
+export interface WordCount {
+  word: string;
+  count: number;
+  sources: number;
+}
+
+export interface WordFrequency {
+  words: WordCount[];
+  totalWords: number;
+  distinctWords: number;
+}
+
+export interface KeywordContext {
+  sourceId: number;
+  sourceName: string;
+  start: number;
+  end: number;
+  before: string;
+  matched: string;
+  after: string;
+}
+
 export interface ImportOutcome {
   path: string;
   name: string;

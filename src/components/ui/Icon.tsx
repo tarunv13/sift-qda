@@ -19,7 +19,8 @@ const paths = {
   sun: "M12 3v2m0 14v2m9-9h-2M5 12H3m15.36-6.36-1.41 1.41M7.05 16.95l-1.41 1.41m0-12.72 1.41 1.41m9.9 9.9 1.41 1.41M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z",
   moon: "M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z",
   monitor: "M3 5h18v11H3zM8 20h8M12 16v4",
-  compass: "M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18Zm3.5-12.5-2 5-5 2 2-5z",
+  chart: "M4 20V11M10 20V4M16 20v-6M3 20h18",
+  compass:"M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18Zm3.5-12.5-2 5-5 2 2-5z",
 } as const;
 
 export type IconName = keyof typeof paths;

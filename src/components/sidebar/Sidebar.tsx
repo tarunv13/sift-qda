@@ -8,7 +8,7 @@ import { CodeTree } from "./CodeTree";
 import { SourceList } from "./SourceList";
 
 export function Sidebar() {
-  const { project, openProject, run, notify } = useProject();
+  const { project, openProject, view, setView, run, notify } = useProject();
 
   async function exportProject() {
     if (!project) return;
@@ -43,6 +43,17 @@ export function Sidebar() {
         <h1 className="flex-1 truncate font-reading text-[15px] text-ink" title={project?.name}>
           {project?.name}
         </h1>
+        <Button
+          size="icon"
+          variant={view === "explore" ? "secondary" : "ghost"}
+          onClick={() => setView(view === "explore" ? "read" : "explore")}
+          aria-pressed={view === "explore"}
+          aria-label="Explore words and patterns"
+          title="Explore words and patterns"
+          data-tour="explore"
+        >
+          <Icon name="chart" />
+        </Button>
         <Button size="icon" variant="ghost" onClick={exportExcel} aria-label="Export to Excel" title="Export to Excel (.xlsx)" data-tour="export-excel">
           <Icon name="table" />
         </Button>

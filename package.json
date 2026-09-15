@@ -18,6 +18,8 @@
     "@tiptap/extension-text": "^3.31.3",
     "@tiptap/pm": "^3.31.3",
     "@tiptap/react": "^3.31.3",
+    "d3-cloud": "1.2.9",
+    "echarts": "6.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-pdf": "^11.0.0"
