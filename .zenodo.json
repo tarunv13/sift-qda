@@ -1,0 +1,22 @@
+{
+  "upload_type": "software",
+  "access_right": "open",
+  "title": "Sift QDA: local-first qualitative data analysis",
+  "description": "<p>Sift QDA is free, open-source software for qualitative data analysis that keeps research data on the researcher's own computer. It supports coding of documents, PDFs, survey data and transcribed audio, matrix coding and coding queries, local semantic search and a local AI assistant, and exchange with other CAQDAS tools through the REFI-QDA standard.</p>",
+  "creators": [
+    {
+      "name": "Verma, Tarun Kumar",
+      "orcid": "0009-0009-4130-2455"
+    }
+  ],
+  "license": "mit",
+  "notes": "Dual-licensed: use under either the MIT license or the Apache License 2.0, at your option.",
+  "keywords": [
+    "qualitative data analysis",
+    "CAQDAS",
+    "thematic analysis",
+    "REFI-QDA",
+    "research data privacy",
+    "open source"
+  ]
+}

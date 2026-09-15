@@ -230,7 +230,7 @@ or copy one of these, replacing the version with the one you used:
 
 **APA 7**
 
-> Verma, T. K. (2026). *Sift QDA: Local-first qualitative data analysis* (Version 0.2.0) [Computer software]. https://github.com/tarunv13/sift-qda
+> Verma, T. K. (2026). *Sift QDA: Local-first qualitative data analysis* (Version 0.2.1) [Computer software]. https://github.com/tarunv13/sift-qda
 
 **BibTeX**
 
@@ -239,7 +239,7 @@ or copy one of these, replacing the version with the one you used:
   author  = {Verma, Tarun Kumar},
   title   = {Sift QDA: Local-first qualitative data analysis},
   year    = {2026},
-  version = {0.2.0},
+  version = {0.2.1},
   url     = {https://github.com/tarunv13/sift-qda},
   license = {MIT OR Apache-2.0}
 }
@@ -247,7 +247,7 @@ or copy one of these, replacing the version with the one you used:
 
 **In a methods section**, for example:
 
-> Interview transcripts were coded thematically in Sift QDA version 0.2.0 (Verma, 2026), an
+> Interview transcripts were coded thematically in Sift QDA version 0.2.1 (Verma, 2026), an
 > open-source qualitative data analysis application that stores and processes all data locally.
 
 Releases are being archived on [Zenodo](https://zenodo.org) so that each version has a permanent DOI.
