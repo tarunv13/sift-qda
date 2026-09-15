@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
 import { api } from "../../lib/api";
-import { nextColor, PALETTE } from "../../lib/colors";
+import { COLOR_NAMES, nextColor, PALETTE } from "../../lib/colors";
 import { useProject } from "../../state/ProjectContext";
 import { Button } from "../ui/Button";
 
@@ -54,7 +54,8 @@ export function NewCodeForm({ open, onDone }: { open: boolean; onDone: () => voi
                 type="button"
                 role="radio"
                 aria-checked={swatch === color}
-                aria-label={swatch}
+                aria-label={COLOR_NAMES[swatch]}
+                title={COLOR_NAMES[swatch]}
                 onClick={() => setColor(swatch)}
                 className={`h-5 w-5 rounded-full transition-transform duration-150 hover:scale-110 ${swatch === color ? "scale-110 ring-2 ring-ink/70 ring-offset-2 ring-offset-surface" : ""}`}
                 style={{ background: swatch }}

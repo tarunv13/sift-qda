@@ -13,7 +13,7 @@ export function CodingDemo() {
         every summer.”
       </p>
       <div className="demo-menu mt-2.5 inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-2.5 py-1.5 text-xs text-ink shadow-md">
-        <span className="h-2 w-2 rounded-full bg-[#e2a336]" />
+        <span className="h-2 w-2 rounded-full bg-[#c98500]" />
         Worry about the future
         <Icon name="check" size={13} className="demo-check text-accent" />
       </div>

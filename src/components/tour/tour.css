@@ -29,8 +29,8 @@
 }
 
 .demo-sweep {
-  background: color-mix(in srgb, #e2a336 30%, transparent);
-  box-shadow: inset 0 -2px 0 color-mix(in srgb, #e2a336 80%, transparent);
+  background: color-mix(in srgb, #c98500 30%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, #c98500 80%, transparent);
   transform-origin: left center;
   animation: demo-sweep 4.2s var(--ease-in-out) infinite;
 }
