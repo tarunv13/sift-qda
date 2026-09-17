@@ -11,7 +11,9 @@ import material, attach attributes to cases, build codes, review by code, export
    becomes a case.
 2. Import the transcripts and do a first pass of open codes as you read.
 3. Group codes into candidate themes by nesting them in the code tree.
-4. Review each theme's references side by side and write a memo on what holds it together.
+4. Review each theme's references side by side and write a memo on what holds it together. Open
+   **Explore → project map** to see which transcripts each theme actually runs through: a theme
+   carried by one participant is worth a second look before it goes in the write-up.
 5. Export to Excel. The *Coded extracts* sheet gives you theme, code, document and quote per row,
    ready for a results table.
 
@@ -64,7 +66,8 @@ requires it. You remain responsible for your own information-governance obligati
 
 Make each site or partner a case with country, year and programme attributes. Code against the
 evaluation framework (relevance, effectiveness, sustainability) and export the matrix for the
-donor report.
+donor report. **Explore → project map**, set to cases, shows the same coverage as a picture, which
+makes a criterion that only one partner spoke to easy to spot before the report is written.
 
 ## Journalism and investigations
 
@@ -106,7 +109,9 @@ need OCR first.
 **Material:** a folder of research papers as PDFs.
 
 Import each paper, code study design, sample, findings and limitations, and export the *Coded
-extracts* sheet as the base of an evidence table. Page numbers make citations easy to check.
+extracts* sheet as the base of an evidence table. Page numbers make citations easy to check, and
+**Explore → project map** shows which papers sit behind each code, so a finding resting on a single
+study is visible rather than buried in a table.
 
 ## Collaborating with people on other tools
 
