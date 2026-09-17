@@ -8,7 +8,13 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
-- Zenodo DOIs: a DOI badge in the README, DOIs in the How to cite section, and `doi` and`  `identifiers` in `CITATION.cff` (all versions: 10.5281/zenodo.22774118; 0.2.1: 10.5281/zenodo.22774119).
+- Zenodo DOIs: a DOI badge in the README, DOIs in the How to cite section, and `doi` and `identifiers` in `CITATION.cff` (all versions: 10.5281/zenodo.22774118; 0.2.1: 10.5281/zenodo.22774119).
+- **Architecture map:** [docs/architecture.md](docs/architecture.md) diagrams the whole application,
+  what it talks to outside its own process, the database layout, and five journeys through the code.
+  Linked from the README and CONTRIBUTING, with a pointer to the generated interactive version on
+  gitdiagram.com.
+- A documentation link check (`scripts/check-docs-links.mjs`) runs in CI, so the map cannot drift
+  away from the code it describes without the build failing.
 
 ## [0.2.1] - 2026-09-15
 

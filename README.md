@@ -18,6 +18,7 @@ Export your themes to Excel, or move the whole project to NVivo, ATLAS.ti or MAX
 [Download](https://github.com/tarunv13/sift-qda/releases/latest) ·
 [Who it's for](docs/use-cases.md) ·
 [Getting started](#getting-started) ·
+[Architecture](docs/architecture.md) ·
 [How to cite](#how-to-cite) ·
 [Contributing](CONTRIBUTING.md)
 
@@ -197,6 +198,10 @@ src                React 19 + TypeScript UI (no file or database libraries)
   a separate table and can be rebuilt from the text at any time.
 - **Small on purpose.** No source file over 200 lines, minimal npm dependencies, hand-written UI
   primitives. The installer is about 5 MB.
+- **A map of the code.** [docs/architecture.md](docs/architecture.md) diagrams how these pieces fit
+  together, what the app talks to and how the database is laid out. For a generated, clickable
+  version, swap `hub` for `diagram` in this repository's address
+  ([gitdiagram.com/tarunv13/sift-qda](https://gitdiagram.com/tarunv13/sift-qda)).
 
 ## Roadmap
 

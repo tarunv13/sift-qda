@@ -37,6 +37,9 @@ jobs:
       - name: Type-check and build frontend
         run: npm run build
 
+      - name: Check documentation links
+        run: node scripts/check-docs-links.mjs
+
       - name: Check formatting
         working-directory: src-tauri
         run: cargo fmt --check
