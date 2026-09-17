@@ -243,7 +243,7 @@ or copy one of these, replacing the version with the one you used:
 
 **APA 7**
 
-> Verma, T. K. (2026). *Sift QDA: Local-first qualitative data analysis* (Version 0.2.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22774119
+> Verma, T. K. (2026). *Sift QDA: Local-first qualitative data analysis* (Version 0.2.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22813001
 
 **BibTeX**
 
@@ -252,8 +252,8 @@ or copy one of these, replacing the version with the one you used:
   author  = {Verma, Tarun Kumar},
   title   = {Sift QDA: Local-first qualitative data analysis},
   year    = {2026},
-  version = {0.2.1},
-  doi     = {10.5281/zenodo.22774119},
+  version = {0.2.2},
+  doi     = {10.5281/zenodo.22813001},
   url     = {https://github.com/tarunv13/sift-qda},
   license = {MIT OR Apache-2.0}
 }
@@ -261,11 +261,11 @@ or copy one of these, replacing the version with the one you used:
 
 **In a methods section**, for example:
 
-> Interview transcripts were coded thematically in Sift QDA version 0.2.1 (Verma, 2026), an
+> Interview transcripts were coded thematically in Sift QDA version 0.2.2 (Verma, 2026), an
 > open-source qualitative data analysis application that stores and processes all data locally.
 
 Every release is archived on [Zenodo](https://zenodo.org) with its own DOI. To cite a specific version, use
-that version's DOI (0.2.1 is [10.5281/zenodo.22774119](https://doi.org/10.5281/zenodo.22774119)). To refer to Sift QDA
+that version's DOI (0.2.2 is [10.5281/zenodo.22813001](https://doi.org/10.5281/zenodo.22813001)). To refer to Sift QDA
 in general, use the all-versions DOI [10.5281/zenodo.22774118](https://doi.org/10.5281/zenodo.22774118), which always
 resolves to the latest release.
 

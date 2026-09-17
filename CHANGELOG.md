@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+
+### Changed
+
+- The citation examples and `CITATION.cff` now give the 0.2.2 version DOI
+  ([10.5281/zenodo.22813001](https://doi.org/10.5281/zenodo.22813001)). The all-versions DOI is
+  unchanged.
+
 ## [0.2.2] - 2026-09-17
 
 ### Added

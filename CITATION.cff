@@ -18,8 +18,8 @@ identifiers:
     value: 10.5281/zenodo.22774118
     description: "All versions of Sift QDA (resolves to the latest release)"
   - type: doi
-    value: 10.5281/zenodo.22774119
-    description: "Sift QDA 0.2.1"
+    value: 10.5281/zenodo.22813001
+    description: "Sift QDA 0.2.2"
 date-released: 2026-09-17
 license:
   - MIT
