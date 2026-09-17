@@ -64,7 +64,7 @@ flowchart TB
 | Workspace | [`src/components/workspace/`](../src/components/workspace) | The three-column layout, the status bar and the AI settings. |
 | Sidebar | [`src/components/sidebar/`](../src/components/sidebar) | The source list and the code tree, including drag-to-move. |
 | Reader | [`src/components/editor/`](../src/components/editor), [`src/components/pdf/`](../src/components/pdf) | Read-only document with code marks, coding stripes and the audio bar; PDF pages. |
-| Explore | [`src/components/explore/`](../src/components/explore) | Word frequency, matrix coding, coding query and charts, loaded on first use. |
+| Explore | [`src/components/explore/`](../src/components/explore) | Word frequency, matrix coding, coding query, charts and the project map, loaded on first use. |
 | Right panel | [`src/components/panels/`](../src/components/panels) | References for the selected code, memos, annotations, see-also links, cases, search. |
 | ProjectContext | [`src/state/ProjectContext.tsx`](../src/state/ProjectContext.tsx) | The one piece of shared state: open project, selection, notices. |
 | lib/api.ts | [`src/lib/api.ts`](../src/lib/api.ts) | One typed wrapper per Rust command; the only place the interface calls the backend. |
@@ -148,7 +148,9 @@ embedded the same way and matched against that table in
 [`commands/matrix.rs`](../src-tauri/src/commands/matrix.rs),
 [`commands/query.rs`](../src-tauri/src/commands/query.rs)). Rust counts; the interface only draws,
 through [`src/lib/charts.ts`](../src/lib/charts.ts), which registers just the ECharts pieces the app
-uses.
+uses. The project map adds no command of its own: [`src/lib/projectMap.ts`](../src/lib/projectMap.ts)
+turns that same coding matrix and the code tree into the nodes and links that
+[`ProjectMapChart`](../src/components/explore/ProjectMapChart.tsx) draws.
 
 **Leaving.** `export_excel` builds the workbook in [`excel/`](../src-tauri/src/excel), and
 `export_qdpx` writes `project.qde` and a `sources/` folder into a zip in
