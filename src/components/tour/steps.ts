@@ -79,7 +79,7 @@ export const TOURS: Record<TourId, TourStep[]> = {
       target: at("explore"),
       placement: "right",
       title: "Explore words and patterns",
-      body: "Word frequency shows the most common words as a cloud, bars or a table; click a word to read every place it appears. Matrix coding compares codes across sources, cases or attributes as a heatmap. Coding queries find passages coded at one code and, or, but not, or near another. Charts show your codebook as a treemap or sunburst.",
+      body: "Word frequency shows the most common words as a cloud, bars or a table; click a word to read every place it appears. Matrix coding compares codes across sources, cases or attributes as a heatmap. Coding queries find passages coded at one code and, or, but not, or near another. Charts show your codebook as a treemap or sunburst. The project map draws the whole project at once: every code, the theme above it and the sources it runs through, with a click to open any of them.",
     },
     {
       target: at("tab-coded"),

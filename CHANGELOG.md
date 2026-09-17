@@ -8,6 +8,10 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
+- **Project map** in Explore: the project drawn as one map, with every code joined to the sources or
+  cases it is used in and to the theme above it, lines weighted by coded passages. Click a code to
+  gather its passages, or a source to open it. Switch between sources and cases, roll sub-codes up
+  into themes, and read the same counts as a table.
 - Zenodo DOIs: a DOI badge in the README, DOIs in the How to cite section, and `doi` and `identifiers` in `CITATION.cff` (all versions: 10.5281/zenodo.22774118; 0.2.1: 10.5281/zenodo.22774119).
 - **Architecture map:** [docs/architecture.md](docs/architecture.md) diagrams the whole application,
   what it talks to outside its own process, the database layout, and five journeys through the code.

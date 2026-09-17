@@ -104,6 +104,7 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
 | Matrix coding | Heatmap or table of how many passages each code, or each theme with its sub-codes, has in each source, case or attribute value. Click a cell to read its passages; export to Excel with totals |
 | Coding queries | Passages coded at one code and also, or, but not, or near another; include sub-codes, filter by a case attribute, and save the results as a new code |
 | Charts | The codebook as a treemap or sunburst sized by coded passages (click a code to read it), and one code across every source as bars, each with a table view |
+| Project map | The whole project as one picture: every code joined to the sources or cases it runs through and to the theme above it, sized by coded passages. Click a code to gather its passages or a source to open it, with a table view of the same counts |
 | Annotations and links | Comment on any passage, and link passages to each other within or across sources ("see also"); the Notes tab lists both and opens them in place |
 | Coding stripes | A named bar beside the text for every coded passage, side by side where codes overlap; click one to open its code |
 | Memos and cases | Autosaving memos linked to a source, code or case. An editable case table: add cases and attributes, edit values in place, link cases to sources, or create a case per source |
@@ -116,6 +117,12 @@ Worked workflows for each are in **[docs/use-cases.md](docs/use-cases.md)**.
   <img src="docs/screenshot-explore.png" alt="The Explore view: a word cloud of the most frequent words across the fictional demo study, with filters for scope, common words and minimum word length" width="100%">
   <br>
   <sub>Explore → word frequency on the fictional demo study. Click any word to read every occurrence in context.</sub>
+</p>
+
+<p align="center">
+  <img src="docs/screenshot-map.png" alt="Explore → project map in the dark theme: codes as coloured circles joined by lines to the four sources of the fictional demo study, with themes shown as small dots on dashed lines" width="100%">
+  <br>
+  <sub>Explore → project map: every code, the theme above it and the sources it runs through. Click a code to gather its passages, or a source to open it.</sub>
 </p>
 
 <p align="center">
