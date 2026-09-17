@@ -12,6 +12,12 @@ or a description of how you analyse data is as valuable as code.
 - **Improve the docs**, including new workflows for [docs/use-cases.md](docs/use-cases.md).
 - **Write code.** Issues labelled `good first issue` are a good start.
 
+## Finding your way around
+
+[docs/architecture.md](docs/architecture.md) maps the whole application in one diagram: which folder
+holds what, what the app talks to, how the database is laid out, and the path a passage takes from an
+imported file to a coded extract. Start there before a first pull request.
+
 ## Development setup
 
 See [Build from source](README.md#build-from-source) for requirements. Then:
